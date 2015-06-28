@@ -1,0 +1,8 @@
+/vendor
+/node_modules
+Homestead.yaml
+.env
+/public/components
+.bowerrc
+.env.example
+.gitattributes
