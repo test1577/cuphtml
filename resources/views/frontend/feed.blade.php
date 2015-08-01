@@ -3,7 +3,7 @@
       <div class="container">
         
         <!--Highlight-->
-        <div class="col-md-12 col-sm-12 col-xs-12 hidden-xs">
+        <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="tab-left">
             <div class="section">
               <button type="button" class="btn-section btn-highlight actived btn btn-default btn-xs" aria-label="Left Align">
@@ -77,7 +77,51 @@
                 </div>
               </div>
 
-              <div class="col-sm-6 col-md-4 visible-md visible-sm visible-xs">
+              <div class="col-sm-6 col-md-4 hidden-xs">
+                <div class="thumbnail">
+                  <img class="img-responsive" src="assets/images/hero.jpg">
+                  <div class="caption">
+                    <h4>Thumbnail label</h4>
+                    <div class="description">
+                      <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta</p>
+                    </div>
+                    <hr>
+                    <button type="button" class="btn-section btn-love actived btn btn-default btn-xs bounceIn animated">
+                      <span><i class="glyphicon glyphicon-heart" aria-hidden="true"></i> Love</span>
+                    </button>
+                    <button type="button" class="btn-section btn-pin actived btn btn-default btn-xs bounceIn animated">
+                      <span><i class="glyphicon glyphicon-pushpin"></i> Pin me</span>
+                    </button>
+                    <button type="button" class="btn-section btn-comment actived btn btn-default btn-xs">
+                      <span><i class="glyphicon glyphicon-comment" aria-hidden="true"></i> Comment</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 hidden-xs">
+                <div class="thumbnail">
+                  <img class="img-responsive" src="assets/images/hero.jpg">
+                  <div class="caption">
+                    <h4>Thumbnail label</h4>
+                    <div class="description">
+                      <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta</p>
+                    </div>
+                    <hr>
+                    <button type="button" class="btn-section btn-love actived btn btn-default btn-xs bounceIn animated">
+                      <span><i class="glyphicon glyphicon-heart" aria-hidden="true"></i> Love</span>
+                    </button>
+                    <button type="button" class="btn-section btn-pin actived btn btn-default btn-xs bounceIn animated">
+                      <span><i class="glyphicon glyphicon-pushpin"></i> Pin me</span>
+                    </button>
+                    <button type="button" class="btn-section btn-comment actived btn btn-default btn-xs">
+                      <span><i class="glyphicon glyphicon-comment" aria-hidden="true"></i> Comment</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 hidden-xs">
                 <div class="thumbnail">
                   <img class="img-responsive" src="assets/images/hero.jpg">
                   <div class="caption">
