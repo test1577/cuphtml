@@ -17,9 +17,10 @@ abstract class Controller extends BaseController
     
     public function globalData()
     {
-     $data = array(
+     $data = [
+         'title' => 'cuphtml online',
          'baseUrl' => asset('/')
-     ); 
+     ]; 
      return $data;
     }
 }

@@ -13,6 +13,16 @@ class HomeController extends Controller
     {
       $data = array(
           'global' => Controller::globalData(),
+          'page' => 'feed',
+          'title' => 'cuphtml'
+      );
+       return view('frontend/home',$data);
+    }
+    protected function authen()
+    {
+      $data = array(
+          'global' => Controller::globalData(),
+          'page' => 'login',
           'title' => 'cuphtml'
       );
        return view('frontend/home',$data);

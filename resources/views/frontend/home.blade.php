@@ -1,53 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Laravel Test</title>
+        <title>{{ $global['title'] }}</title>
 
-        <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
-        <style>
-            html, body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                color: #B0BEC5;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-                margin-bottom: 40px;
-            }
-
-            .quote {
-                font-size: 24px;
-            }
-        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="{{ $global['baseUrl'] }}assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="{{ $global['baseUrl'] }}assets/css/animate.css" rel="stylesheet">
+        <link href="{{ $global['baseUrl'] }}assets/css/style.css?v=1" rel="stylesheet">
+        <link rel="icon" type="image/png" href="{{ $global['baseUrl'] }}assets/icon/favicon.ico">
+        
     </head>
-    <body>
-      @include('frontend/base/menu')   
-      <div class="container">
-            <div class="content">
-                <div class="title"> 5.1</div>
-                <div class="quote">{{ Inspiring::quote() }}</div>
-            </div>
-        </div>
+    <body>   
+      @include('frontend/base/menu')
+      
+      @if ($page === "feed")
+        @include('frontend/feed')
+      @elseif ($page === "login")
+       @include('frontend/login')
+      @endif
+      
+    <script src="{{ $global['baseUrl'] }}assets/js/jquery.js"></script>
+    <script src="{{ $global['baseUrl'] }}assets/js/wow.min.js"></script>
+    <script src="{{ $global['baseUrl'] }}assets/bootstrap/js/bootstrap.js"></script>
+    <script src="{{ $global['baseUrl'] }}assets/js/main.js"></script>
     </body>
 </html>
