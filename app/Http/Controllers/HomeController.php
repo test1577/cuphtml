@@ -18,11 +18,22 @@ class HomeController extends Controller
       );
        return view('frontend/home',$data);
     }
+    
     protected function authen()
     {
       $data = array(
           'global' => Controller::globalData(),
           'page' => 'login',
+          'title' => 'cuphtml'
+      );
+       return view('frontend/home',$data);
+    }
+    
+    protected function profile()
+    {
+      $data = array(
+          'global' => Controller::globalData(),
+          'page' => 'profile',
           'title' => 'cuphtml'
       );
        return view('frontend/home',$data);

@@ -1,3 +1,7 @@
+/** font */
+.des {
+  font-size: 12px;
+}
 /** body */
 .body {
   position: relative;
@@ -173,6 +177,24 @@ body .color-theme {
 }
 .navigator-menu .group-menu .box-menu .wrap-search {
   margin: 0px -1px;
+}
+/** profile */
+.box-profile {
+  position: relative;
+  text-align: center;
+}
+.box-profile img.timeline {
+  width: 100%;
+  max-height: 200px;
+}
+.box-profile img.user {
+  width: 150px;
+  height: 150px;
+  /*    margin: auto;
+    position: absolute;
+    bottom: -75px;
+    left: 0px;
+    right: 0px;*/
 }
 @media screen and (max-width: 768px) {
   /** body */

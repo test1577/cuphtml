@@ -13,6 +13,7 @@
 
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::get('/login', ['as' => 'login', 'uses' => 'HomeController@authen']);
+Route::get('/profile', ['as' => 'profile', 'uses' => 'HomeController@profile']);
 Route::get('/menu', function () {
     return view('frontend/base/menu');
 });

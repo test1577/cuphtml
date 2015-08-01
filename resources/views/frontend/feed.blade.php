@@ -13,7 +13,7 @@
 
               <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                  <img class="img-responsive" src="assets/images/hero.jpg">
+                  <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
                   <div class="caption">
                     <h4>Thumbnail label</h4>
                     <div class="description">
@@ -35,7 +35,7 @@
 
               <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                  <img class="img-responsive" src="assets/images/hero.jpg">
+                  <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
                   <div class="caption">
                     <h4>Thumbnail label</h4>
                     <div class="description">
@@ -57,7 +57,7 @@
 
               <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                  <img class="img-responsive" src="assets/images/hero.jpg">
+                  <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
                   <div class="caption">
                     <h4>Thumbnail label</h4>
                     <div class="description">
@@ -79,7 +79,7 @@
 
               <div class="col-sm-6 col-md-4 hidden-xs">
                 <div class="thumbnail">
-                  <img class="img-responsive" src="assets/images/hero.jpg">
+                  <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
                   <div class="caption">
                     <h4>Thumbnail label</h4>
                     <div class="description">
@@ -101,7 +101,7 @@
 
               <div class="col-sm-6 col-md-4 hidden-xs">
                 <div class="thumbnail">
-                  <img class="img-responsive" src="assets/images/hero.jpg">
+                  <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
                   <div class="caption">
                     <h4>Thumbnail label</h4>
                     <div class="description">
@@ -123,7 +123,7 @@
 
               <div class="col-sm-6 col-md-4 hidden-xs">
                 <div class="thumbnail">
-                  <img class="img-responsive" src="assets/images/hero.jpg">
+                  <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
                   <div class="caption">
                     <h4>Thumbnail label</h4>
                     <div class="description">
@@ -167,7 +167,7 @@
                 <span><i class="glyphicon glyphicon-time"></i> 1 mins</span>
               </div>
               <hr>
-              <img class="img-responsive" src="assets/images/hero.jpg">
+              <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
               <div class="description">
                 <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta</p>
               </div>

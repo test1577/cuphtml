@@ -54,7 +54,7 @@
                   </li>-->
                   
                   <li><a href="{{ $global['baseUrl'] }}login"><i class="glyphicon glyphicon-lock"></i> Login / Register</a></li>
-                  <li><a href="#"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
+                  <li><a href="{{ $global['baseUrl'] }}profile"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
                   <li><a href="#"><i class="glyphicon glyphicon-usd"></i> Coin</a></li>
                   <li><a href="#"><i class="glyphicon glyphicon-pushpin"></i> Pin</a></li>
                   <li><a href="#"><i class="glyphicon glyphicon-send"></i> Check Order</a></li>

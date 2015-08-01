@@ -5,6 +5,7 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="{{ $global['baseUrl'] }}assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="{{ $global['baseUrl'] }}assets/css/icon/icon.css" rel="stylesheet">
         <link href="{{ $global['baseUrl'] }}assets/css/animate.css" rel="stylesheet">
         <link href="{{ $global['baseUrl'] }}assets/css/style.css?v=1" rel="stylesheet">
         <link rel="icon" type="image/png" href="{{ $global['baseUrl'] }}assets/icon/favicon.ico">
@@ -17,6 +18,9 @@
         @include('frontend/feed')
       @elseif ($page === "login")
        @include('frontend/login')
+      @elseif ($page === "profile")
+       @include('frontend/profile')
+       @include('frontend/feed')
       @endif
       
     <script src="{{ $global['baseUrl'] }}assets/js/jquery.js"></script>
