@@ -29,6 +29,16 @@ class HomeController extends Controller
        return view('frontend/home',$data);
     }
     
+    protected function register()
+    {
+      $data = array(
+          'global' => Controller::globalData(),
+          'page' => 'register',
+          'title' => 'cuphtml'
+      );
+       return view('frontend/home',$data);
+    }
+    
     protected function profile()
     {
       $data = array(
