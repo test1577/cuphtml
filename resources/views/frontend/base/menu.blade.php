@@ -53,6 +53,7 @@
                     </div>
                   </li>-->
                   
+                  <li><a href="{{ $global['baseUrl'] }}"><i class="glyphicon glyphicon-home"></i> Home</a></li>
                   <li><a href="{{ $global['baseUrl'] }}login"><i class="glyphicon glyphicon-lock"></i> Login / Register</a></li>
                   <li><a href="{{ $global['baseUrl'] }}profile"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
                   <li><a href="#"><i class="glyphicon glyphicon-usd"></i> Coin</a></li>

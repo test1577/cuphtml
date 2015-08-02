@@ -12,6 +12,7 @@
         
         <link href="{{ $global['baseUrl'] }}assets/css/icon/icon.css" rel="stylesheet">
         <link href="{{ $global['baseUrl'] }}assets/css/animate.css" rel="stylesheet">
+        <link href="{{ $global['baseUrl'] }}assets/css/custom.css" rel="stylesheet">
         <link href="{{ $global['baseUrl'] }}assets/css/style.css?v=1" rel="stylesheet">
         <link rel="icon" type="image/png" href="{{ $global['baseUrl'] }}assets/icon/favicon.ico">
         
@@ -20,14 +21,15 @@
       @include('frontend/base/menu')
       
       @if ($page === "feed")
-        @include('frontend/feed')
+        @include('frontend/home/slide')
+        @include('frontend/home/feed')
       @elseif ($page === "login")
-       @include('frontend/login')
+       @include('frontend/home/login')
       @elseif ($page === "register")
-       @include('frontend/register')
+       @include('frontend/home/register')
       @elseif ($page === "profile")
-       @include('frontend/profile')
-       @include('frontend/feed')
+       @include('frontend/home/profile')
+       @include('frontend/home/feed')
       @endif
     
     <!-- liberies -->
