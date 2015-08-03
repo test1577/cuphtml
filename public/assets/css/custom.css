@@ -1,4 +1,5 @@
-#slide-cuphtml .item img{
+#slide-cuphtml .item img,
+#slide-cuphtml-banner .item img{
     display: block;
     width: 100%;
     height: auto;
