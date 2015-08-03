@@ -24,6 +24,7 @@
   border: 1px solid #dfe0e4;
 }
 .body div.tab-left .section h4 {
+  padding: 10px;
   margin: 10px 0px;
 }
 .body div.tab-left .section h4.topic {
@@ -113,6 +114,30 @@
   padding: 10px;
   background-color: #ffffff;
   border: 1px solid #dfe0e4;
+}
+.body div.tab-right .section h4 {
+  padding: 10px;
+  margin: 10px 0px;
+}
+.body div.tab-right .section h4.topic {
+  margin: -8px;
+}
+.body div.tab-right .section .title {
+  width: 89%;
+  text-overflow: ellipsis;
+  overflow: auto;
+  display: inline-block;
+}
+.body div.tab-right .section .menu-mini {
+  display: inline;
+}
+.body div.tab-right .section .description {
+  margin: 4px 0px;
+  font-size: 12px;
+}
+.body div.tab-right .section hr {
+  margin: 10px 0px;
+  clear: both;
 }
 /** main */
 body {

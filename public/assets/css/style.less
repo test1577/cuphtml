@@ -50,6 +50,7 @@
       background-color: @background-white;
       border: 1px solid @gray-soft;
       h4 {
+        padding: 10px;
         margin: 10px 0px;
         &.topic {
           margin: -8px;
@@ -145,6 +146,32 @@
     padding: 10px;
     background-color: @background-white;
     border: 1px solid @gray-soft;
+    .section {
+      h4 {
+        padding: 10px;
+        margin: 10px 0px;
+        &.topic {
+          margin: -8px;
+        }
+      }
+      .title {
+        width: 89%;
+        text-overflow: ellipsis;
+        overflow: auto;
+        display: inline-block;
+      }
+      .menu-mini {
+        display: inline;
+      }
+      .description {
+        margin : 4px 0px;
+        font-size: 12px;
+      }
+      hr {
+        margin: 10px 0px;
+        clear: both;
+      }
+    }
   }
 }
 
