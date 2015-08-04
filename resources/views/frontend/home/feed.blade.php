@@ -6,14 +6,14 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="tab-left">
         <div class="section">
-            <h4 class="topic"><i class="glyphicon glyphicon-bookmark" aria-hidden="true"></i> Highlight</h4>
+            <h4 class="topic color-theme"><i class="glyphicon glyphicon-bookmark" aria-hidden="true"></i> Highlight</h4>
           <hr>
 
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
               <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
               <div class="caption">
-                <h4>Thumbnail label</h4>
+                <h4 class="topic">Thumbnail label</h4>
                 <div class="description">
                   <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta</p>
                 </div>
@@ -35,7 +35,7 @@
             <div class="thumbnail">
               <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
               <div class="caption">
-                <h4>Thumbnail label</h4>
+                <h4 class="topic">Thumbnail label</h4>
                 <div class="description">
                   <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta</p>
                 </div>
@@ -57,7 +57,7 @@
             <div class="thumbnail">
               <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
               <div class="caption">
-                <h4>Thumbnail label</h4>
+                <h4 class="topic">Thumbnail label</h4>
                 <div class="description">
                   <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta</p>
                 </div>
@@ -79,7 +79,7 @@
             <div class="thumbnail">
               <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
               <div class="caption">
-                <h4>Thumbnail label</h4>
+                <h4 class="topic">Thumbnail label</h4>
                 <div class="description">
                   <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta</p>
                 </div>
@@ -101,7 +101,7 @@
             <div class="thumbnail">
               <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
               <div class="caption">
-                <h4>Thumbnail label</h4>
+                <h4 class="topic">Thumbnail label</h4>
                 <div class="description">
                   <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta</p>
                 </div>
@@ -123,7 +123,7 @@
             <div class="thumbnail">
               <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
               <div class="caption">
-                <h4>Thumbnail label</h4>
+                <h4 class="topic">Thumbnail label</h4>
                 <div class="description">
                   <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta</p>
                 </div>
@@ -210,7 +210,7 @@
     <div class="col-md-3 col-sm-3 col-xs-12 col-transparent">
         <div class="tab-right hidden-xs">
           <div class="section">
-              <h4 class="topic"><i class="glyphicon glyphicon-star" aria-hidden="true"></i> Banner</h4>
+              <h4 class="topic color-theme"><i class="glyphicon glyphicon-star" aria-hidden="true"></i> Banner</h4>
           </div>
           <hr>
           <div id="slide-cuphtml-banner" class="owl-carousel owl-theme">

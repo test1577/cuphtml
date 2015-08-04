@@ -5,7 +5,8 @@
         <meta name="baseUrl" content="{{ $global['baseUrl'] }}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- plugins -->
-        <link href="{{ $global['baseUrl'] }}assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="{{ $global['baseUrl'] }}assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{ $global['baseUrl'] }}assets/plugins/bootstrap-dialog/css/bootstrap-dialog.min.css" rel="stylesheet">
         <link href="{{ $global['baseUrl'] }}assets/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
         <link href="{{ $global['baseUrl'] }}assets/plugins/owl-carousel/owl.theme.css" rel="stylesheet">
         <link href="{{ $global['baseUrl'] }}assets/plugins/owl-carousel/owl.transitions.css" rel="stylesheet">
@@ -39,7 +40,8 @@
     
     <!-- plugins -->
     <script src="{{ $global['baseUrl'] }}assets/plugins/wow.min.js"></script>
-    <script src="{{ $global['baseUrl'] }}assets/plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="{{ $global['baseUrl'] }}assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ $global['baseUrl'] }}assets/plugins/bootstrap-dialog/js/bootstrap-dialog.min.js"></script>
     <script src="{{ $global['baseUrl'] }}assets/plugins/owl-carousel/owl.carousel.js"></script>
     
     <!-- config -->

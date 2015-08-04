@@ -6,6 +6,7 @@ $(document).ready(function () {
         option.liberies.wow();
         option.liberies.owlCarousel();
         option.button.btnScrollTop();
+        option.button.btnLottery();
         option.windowEvent.scroll.on();
       },
       
@@ -28,12 +29,32 @@ $(document).ready(function () {
         
         'showBtnToTop': function (scroll) {
           $body = $('body');
-          var $elBtn = $body.find('.fix-btn-scroll');
+          var $btn = $body.find('.fix-btn-scroll');
           if (scroll > 300) {
-            $elBtn.fadeIn();
+            $btn.fadeIn();
           } else {
-            $elBtn.fadeOut();
+            $btn.fadeOut();
           }
+        },
+        
+        'btnLottery': function () {
+          $('.btn-show-lottery').on('click', function () {
+            option.button.btnShowLottery();
+          });
+        },
+        
+        'btnShowLottery': function () {
+          var setOption = {
+            'title': 'ลอตเตอรี่ประจำวัน',
+            'message': 'ลุ้นเสี่ยงดวงวันละครั้ง',
+            'buttons': [{
+                label: 'เสี่ยงดวง',
+                action: function(dialog) {
+                    dialog.setMessage('คุณได้รับรางวัลแล้ว โปรดตรวจสอบรางวัลจากกล่องของขวัญ');
+                }
+            }]
+          };
+          option.liberies.bootstrap.alert(setOption);
         }
         
       },
@@ -82,6 +103,14 @@ $(document).ready(function () {
         'bootstrap': {
           'dropdown': function () {
             $('.dropdown-toggle').dropdown();
+          },
+          'alert': function (setOption) {
+            var dialog = new BootstrapDialog.show(setOption);
+//            dialog.realize();
+//            dialog.getModalHeader().hide();
+//            dialog.getModalBody().hide();
+//            dialog.getModalFooter().hide();
+//            dialog.open();
           }
         },
         

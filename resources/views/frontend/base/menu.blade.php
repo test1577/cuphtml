@@ -60,7 +60,7 @@
                   <li><a href="#"><i class="glyphicon glyphicon-pushpin"></i> Pin</a></li>
                   <li><a href="#"><i class="glyphicon glyphicon-send"></i> Check Order</a></li>
                   <li><a href="#"><i class="glyphicon glyphicon-comment"></i> Quick</a></li>
-                  <li><a href="#"><i class="glyphicon glyphicon-dashboard"></i> Lottery Spiner</a></li>
+                  <li class="btn-show-lottery"><a href="javascript:void(0);"><i class="glyphicon glyphicon-dashboard"></i> Lottery Spiner</a></li>
                 </ul>
               </div>
             </div>
