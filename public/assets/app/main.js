@@ -11,29 +11,48 @@ $(document).ready(function () {
       },
       
       'object': {
-        'scrollPositionCurrent': 0
+        'scrollPositionCurrent': 0,
+        'scrollWorking': false
       },
       
       'button': {
         btnScrollTop: function () {
-          $btnScrollTop = '<span class="fix-btn-scroll' +
+          $btnScrollTop = '<span class="fix-btn-start-scroll' +
             ' glyphicon glyphicon-eject"' +
+            ' aria-hidden="true"></span>'+
+            '<span class="fix-btn-pause-scroll' +
+            ' glyphicon glyphicon-pause"' +
             ' aria-hidden="true"></span>';
           $body = $('body');
           $body.append($btnScrollTop);
-          var $elBtn = $body.find('.fix-btn-scroll');
-          $elBtn.on("click", function () {
-            $('html,body').animate({scrollTop: (0)}, 1000);
+          var $btnStartScroll = $body.find('.fix-btn-start-scroll');
+          var $btnPauseScroll = $body.find('.fix-btn-pause-scroll');
+          $btnStartScroll.on("click", function () {
+            option.windowEvent.scroll.scrollToTop(1000);
+          });
+          $btnPauseScroll.on("click", function () {
+            option.windowEvent.scroll.stopScroll();
           });
         },
         
         'showBtnToTop': function (scroll) {
+          if (!scroll) {
+            scroll = $(window).scrollTop();
+          }
           $body = $('body');
-          var $btn = $body.find('.fix-btn-scroll');
-          if (scroll > 300) {
-            $btn.fadeIn();
-          } else {
-            $btn.fadeOut();
+          var $btnStartScroll = $body.find('.fix-btn-start-scroll');
+          var $btnPauseScroll = $body.find('.fix-btn-pause-scroll');
+          var scrollWorking = option.object.scrollWorking;
+          if (scroll > 300 && scrollWorking) {
+            $btnStartScroll.fadeOut();
+            $btnPauseScroll.fadeIn();
+          } else if (scroll > 300 && !scrollWorking) {
+            $btnStartScroll.fadeIn();
+            $btnPauseScroll.fadeOut();
+          }
+          else {
+            $btnStartScroll.fadeOut();
+            $btnPauseScroll.fadeOut();
           }
         },
         
@@ -78,13 +97,19 @@ $(document).ready(function () {
             if (scroll > 300 && scroll > scrollValueOld) {
               option.windowEvent.click.on();
               option.windowEvent.scroll.stopScroll();
-              option.windowEvent.scroll.setValueScroll($scroll);
+              option.windowEvent.scroll.setValueScroll(scroll);
             } else {
-              option.windowEvent.scroll.setValueScroll($scroll);
+              option.windowEvent.scroll.setValueScroll(scroll);
             }
           },
           
+          'scrollToTop': function (delay) {
+            option.object.scrollWorking = true;
+            $('html,body').animate({scrollTop: (0)}, delay);
+          },
+          
           'stopScroll': function () {
+            option.object.scrollWorking = false;
             $('html,body').stop();
           }
           
