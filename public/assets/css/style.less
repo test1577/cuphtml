@@ -18,12 +18,41 @@
 
 @font-mini: 12px;
 @font-normal: 14px;
+@font-theme-size: 14px;
+@font-head-theme-size: 16px;
+@font-theme: 'cuphtml_font';
 
 @icon-size: 16px;
 @icon-color-default: #93549C;
 @icon-color-disable: #7F7F7F;
 @icon-color-hover: #D33558;
 @icon-color-active: #D33558;
+
+@font-face {
+    font-family: 'cuphtml_font';
+    src: url('../fonts/supermarket.eot');
+    src: url('../fonts/supermarket.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/supermarket.woff2') format('woff2'),
+         url('../fonts/supermarket.woff') format('woff'),
+         url('../fonts/supermarket.ttf') format('truetype'),
+         url('../fonts/supermarket.svg#supermarketregular') format('svg');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'bangna_font';
+    src: url('../fonts/bangna-new.eot');
+    src: url('../fonts/bangna-new.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/bangna-new.woff2') format('woff2'),
+         url('../fonts/bangna-new.woff') format('woff'),
+         url('../fonts/bangna-new.ttf') format('truetype'),
+         url('../fonts/bangna-new.svg#bangna_newregular') format('svg');
+    font-weight: bold;
+    font-style: normal;
+
+}
 
 /** font */
 .des {
@@ -57,6 +86,8 @@
         margin: 10px 0px;
         &.topic {
           margin: -8px;
+          font-family: @font-theme;
+          font-size: @font-head-theme-size;
         }
       }
       .title {
@@ -71,6 +102,18 @@
       .description {
         margin : 4px 0px;
         font-size: 12px;
+      }
+      .discount {
+        color: @white;
+        padding: 10px;
+        background-color: @red;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 16px;
+        p {
+          margin: 0px;
+        }
       }
       hr {
         margin: 10px 0px;
@@ -155,6 +198,8 @@
         margin: 10px 0px;
         &.topic {
           margin: -8px;
+          font-family: @font-theme;
+          font-size: @font-head-theme-size;
         }
       }
       .title {
@@ -270,106 +315,7 @@ body {
     top: 45px;
     .container {
       background-color: @background-white;
-      border: 1px solid @gray-soft;
-    }
-    div.tab-left {
-      .section {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding: 10px;
-        background-color: @background-white;
-        border: 1px solid @gray-soft;
-        h4 {
-          margin: 10px 0px;
-          &.topic {
-            margin: -8px;
-          }
-        }
-        .title {
-          width: 89%;
-          text-overflow: ellipsis;
-          overflow: auto;
-          display: inline-block;
-        }
-        .menu-mini {
-          display: inline;
-        }
-        .description {
-          margin : 4px 0px;
-          font-size: 12px;
-        }
-        hr {
-          margin: 10px 0px;
-          clear: both;
-        }
-        .float-right {
-          float: right;
-        }
-        .btn-section {
-          outline: none;
-          color: @icon-color-disable;
-          border-color: transparent;
-          background-color: transparent;
-          &:hover, &:active {
-            color: @icon-color-hover;
-            background-color: transparent;
-          }
-          &.actived {
-            color: @icon-color-hover;
-            background-color: transparent;
-          }
-        }
-        .btn-highlight {
-          &:hover, &:active {
-            color: @purple;
-            background-color: transparent;
-          }
-          &.actived {
-            color: @purple;
-            background-color: transparent;
-          }
-        }
-        .btn-love {
-          &:hover, &:active {
-            color: @pink;
-            background-color: transparent;
-          }
-          &.actived {
-            color: @pink;
-            background-color: transparent;
-          }
-        }
-        .btn-pin {
-          &:hover, &:active {
-            color: @red;
-            background-color: transparent;
-          }
-          &.actived {
-            color: @red;
-            background-color: transparent;
-          }
-        }
-        .btn-vote {
-          &:hover, &:active {
-            color: @orange;
-            background-color: transparent;
-          }
-          &.actived {
-            color: @orange;
-            background-color: transparent;
-          }
-        }
-        .btn-comment {
-          &:hover, &:active {
-            color: @blue;
-            background-color: transparent;
-          }
-          &.actived {
-            color: @blue;
-            background-color: transparent;
-          }
-        }
-      }
+      border: 0px solid @gray-soft;
     }
   }
 }

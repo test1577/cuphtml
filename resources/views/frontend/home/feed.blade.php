@@ -2,6 +2,154 @@
 <div class="body">
   <div class="container">
 
+    <!--Shop-->
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="tab-left">
+        <div class="section">
+            <h4 class="topic color-theme"><i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i> Shopping</h4>
+          <hr>
+
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
+              <div class="caption">
+                <h4 class="topic">Thumbnail label</h4>
+                <div class="description">
+                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta</p>
+                </div>
+                <div class="discount">
+                  <p>50 %</p>
+                </div>
+                <hr>
+                <button type="button" class="btn-section btn-love actived btn btn-default btn-xs bounceIn animated">
+                  <span><i class="glyphicon glyphicon-heart" aria-hidden="true"></i> Love</span>
+                </button>
+                <button type="button" class="btn-section btn-pin actived btn btn-default btn-xs bounceIn animated">
+                  <span><i class="glyphicon glyphicon-pushpin"></i> Pin me</span>
+                </button>
+                <button type="button" class="btn-section btn-comment actived btn btn-default btn-xs">
+                  <span><i class="glyphicon glyphicon-comment" aria-hidden="true"></i> Comment</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
+              <div class="caption">
+                <h4 class="topic">Thumbnail label</h4>
+                <div class="description">
+                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta</p>
+                </div>
+                <hr>
+                <button type="button" class="btn-section btn-love actived btn btn-default btn-xs bounceIn animated">
+                  <span><i class="glyphicon glyphicon-heart" aria-hidden="true"></i> Love</span>
+                </button>
+                <button type="button" class="btn-section btn-pin actived btn btn-default btn-xs bounceIn animated">
+                  <span><i class="glyphicon glyphicon-pushpin"></i> Pin me</span>
+                </button>
+                <button type="button" class="btn-section btn-comment actived btn btn-default btn-xs">
+                  <span><i class="glyphicon glyphicon-comment" aria-hidden="true"></i> Comment</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
+              <div class="caption">
+                <h4 class="topic">Thumbnail label</h4>
+                <div class="description">
+                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta</p>
+                </div>
+                <hr>
+                <button type="button" class="btn-section btn-love actived btn btn-default btn-xs bounceIn animated">
+                  <span><i class="glyphicon glyphicon-heart" aria-hidden="true"></i> Love</span>
+                </button>
+                <button type="button" class="btn-section btn-pin actived btn btn-default btn-xs bounceIn animated">
+                  <span><i class="glyphicon glyphicon-pushpin"></i> Pin me</span>
+                </button>
+                <button type="button" class="btn-section btn-comment actived btn btn-default btn-xs">
+                  <span><i class="glyphicon glyphicon-comment" aria-hidden="true"></i> Comment</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4 hidden-xs">
+            <div class="thumbnail">
+              <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
+              <div class="caption">
+                <h4 class="topic">Thumbnail label</h4>
+                <div class="description">
+                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta</p>
+                </div>
+                <hr>
+                <button type="button" class="btn-section btn-love actived btn btn-default btn-xs bounceIn animated">
+                  <span><i class="glyphicon glyphicon-heart" aria-hidden="true"></i> Love</span>
+                </button>
+                <button type="button" class="btn-section btn-pin actived btn btn-default btn-xs bounceIn animated">
+                  <span><i class="glyphicon glyphicon-pushpin"></i> Pin me</span>
+                </button>
+                <button type="button" class="btn-section btn-comment actived btn btn-default btn-xs">
+                  <span><i class="glyphicon glyphicon-comment" aria-hidden="true"></i> Comment</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4 hidden-xs">
+            <div class="thumbnail">
+              <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
+              <div class="caption">
+                <h4 class="topic">Thumbnail label</h4>
+                <div class="description">
+                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta</p>
+                </div>
+                <hr>
+                <button type="button" class="btn-section btn-love actived btn btn-default btn-xs bounceIn animated">
+                  <span><i class="glyphicon glyphicon-heart" aria-hidden="true"></i> Love</span>
+                </button>
+                <button type="button" class="btn-section btn-pin actived btn btn-default btn-xs bounceIn animated">
+                  <span><i class="glyphicon glyphicon-pushpin"></i> Pin me</span>
+                </button>
+                <button type="button" class="btn-section btn-comment actived btn btn-default btn-xs">
+                  <span><i class="glyphicon glyphicon-comment" aria-hidden="true"></i> Comment</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4 hidden-xs">
+            <div class="thumbnail">
+              <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
+              <div class="caption">
+                <h4 class="topic">Thumbnail label</h4>
+                <div class="description">
+                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta</p>
+                </div>
+                <hr>
+                <button type="button" class="btn-section btn-love actived btn btn-default btn-xs bounceIn animated">
+                  <span><i class="glyphicon glyphicon-heart" aria-hidden="true"></i> Love</span>
+                </button>
+                <button type="button" class="btn-section btn-pin actived btn btn-default btn-xs bounceIn animated">
+                  <span><i class="glyphicon glyphicon-pushpin"></i> Pin me</span>
+                </button>
+                <button type="button" class="btn-section btn-comment actived btn btn-default btn-xs">
+                  <span><i class="glyphicon glyphicon-comment" aria-hidden="true"></i> Comment</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <hr>
+
+        </div>
+      </div>
+    </div>
+
     <!--Highlight-->
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="tab-left">

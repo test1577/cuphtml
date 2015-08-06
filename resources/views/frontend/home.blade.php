@@ -5,7 +5,7 @@
         <meta name="baseUrl" content="{{ $global['baseUrl'] }}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- plugins -->
-        <link href="{{ $global['baseUrl'] }}assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!--        <link href="{{ $global['baseUrl'] }}assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="{{ $global['baseUrl'] }}assets/plugins/bootstrap-dialog/css/bootstrap-dialog.min.css" rel="stylesheet">
         <link href="{{ $global['baseUrl'] }}assets/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
         <link href="{{ $global['baseUrl'] }}assets/plugins/owl-carousel/owl.theme.css" rel="stylesheet">
@@ -14,7 +14,8 @@
         <link href="{{ $global['baseUrl'] }}assets/css/icon/icon.css" rel="stylesheet">
         <link href="{{ $global['baseUrl'] }}assets/css/animate.css" rel="stylesheet">
         <link href="{{ $global['baseUrl'] }}assets/css/custom.css" rel="stylesheet">
-        <link href="{{ $global['baseUrl'] }}assets/css/style.css?v=1" rel="stylesheet">
+        <link href="{{ $global['baseUrl'] }}assets/css/style.css?v=1" rel="stylesheet">-->
+        <link href="{{ $global['baseUrl'] }}assets/css/source.min.css" rel="stylesheet">
         <link rel="icon" type="image/png" href="{{ $global['baseUrl'] }}assets/icon/favicon.ico">
         
     </head>
@@ -32,21 +33,31 @@
        @include('frontend/home/profile')
        @include('frontend/home/feed')
       @endif
-    
-    <!-- liberies -->
+<!--    
+     liberies 
     <script src="{{ $global['baseUrl'] }}assets/js/jquery.js"></script>
     <script src="{{ $global['baseUrl'] }}assets/angular/angular.min.js"></script>
     <script src="{{ $global['baseUrl'] }}assets/angular/angular-route/angular-route.min.js"></script>
     
-    <!-- plugins -->
+     plugins 
     <script src="{{ $global['baseUrl'] }}assets/plugins/wow.min.js"></script>
     <script src="{{ $global['baseUrl'] }}assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="{{ $global['baseUrl'] }}assets/plugins/bootstrap-dialog/js/bootstrap-dialog.min.js"></script>
     <script src="{{ $global['baseUrl'] }}assets/plugins/owl-carousel/owl.carousel.js"></script>
     
-    <!-- config -->
+     config 
     <script src="{{ $global['baseUrl'] }}assets/app/app.js"></script>
     <script src="{{ $global['baseUrl'] }}assets/app/BaseCtrl.js"></script>
     <script src="{{ $global['baseUrl'] }}assets/app/main.js"></script>
+-->
+
+    <script src="{{ $global['baseUrl'] }}assets/js/source.min.js"></script>
+    
+    
+    <script src="{{ $global['baseUrl'] }}assets/app/app.js"></script>
+    <script src="{{ $global['baseUrl'] }}assets/app/BaseCtrl.js"></script>
+    <script src="{{ $global['baseUrl'] }}assets/app/main.js"></script>
+    
+    
     </body>
 </html>

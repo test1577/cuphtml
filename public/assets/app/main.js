@@ -3,6 +3,8 @@ $(document).ready(function () {
     var option = {
       'init': function () {
         option.liberies.bootstrap.dropdown();
+//        option.liberies.minify.css();
+//        grunt.loadNpmTasks('grunt-contrib-cssmin');
         option.liberies.wow();
         option.liberies.owlCarousel();
         option.button.btnScrollTop();
@@ -160,6 +162,11 @@ $(document).ready(function () {
               // itemsTablet: false,
               // itemsMobile : false
           });
+        },
+        
+        'minify': {
+          'css': function () {
+          } 
         }
 
       }

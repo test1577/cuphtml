@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'cuphtml_font';
+  src: url('../fonts/supermarket.eot');
+  src: url('../fonts/supermarket.eot?#iefix') format('embedded-opentype'), url('../fonts/supermarket.woff2') format('woff2'), url('../fonts/supermarket.woff') format('woff'), url('../fonts/supermarket.ttf') format('truetype'), url('../fonts/supermarket.svg#supermarketregular') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'bangna_font';
+  src: url('../fonts/bangna-new.eot');
+  src: url('../fonts/bangna-new.eot?#iefix') format('embedded-opentype'), url('../fonts/bangna-new.woff2') format('woff2'), url('../fonts/bangna-new.woff') format('woff'), url('../fonts/bangna-new.ttf') format('truetype'), url('../fonts/bangna-new.svg#bangna_newregular') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
 /** font */
 .des {
   font-size: 12px;
@@ -32,6 +46,8 @@
 }
 .body div.tab-left .section h4.topic {
   margin: -8px;
+  font-family: 'cuphtml_font';
+  font-size: 16px;
 }
 .body div.tab-left .section .title {
   width: 89%;
@@ -45,6 +61,18 @@
 .body div.tab-left .section .description {
   margin: 4px 0px;
   font-size: 12px;
+}
+.body div.tab-left .section .discount {
+  color: #ffffff;
+  padding: 10px;
+  background-color: #d33558;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 16px;
+}
+.body div.tab-left .section .discount p {
+  margin: 0px;
 }
 .body div.tab-left .section hr {
   margin: 10px 0px;
@@ -124,6 +152,8 @@
 }
 .body div.tab-right .section h4.topic {
   margin: -8px;
+  font-family: 'cuphtml_font';
+  font-size: 16px;
 }
 .body div.tab-right .section .title {
   width: 89%;
@@ -233,99 +263,6 @@ body .color-theme {
   }
   .body .container {
     background-color: #ffffff;
-    border: 1px solid #dfe0e4;
-  }
-  .body div.tab-left .section {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #ffffff;
-    border: 1px solid #dfe0e4;
-  }
-  .body div.tab-left .section h4 {
-    margin: 10px 0px;
-  }
-  .body div.tab-left .section h4.topic {
-    margin: -8px;
-  }
-  .body div.tab-left .section .title {
-    width: 89%;
-    text-overflow: ellipsis;
-    overflow: auto;
-    display: inline-block;
-  }
-  .body div.tab-left .section .menu-mini {
-    display: inline;
-  }
-  .body div.tab-left .section .description {
-    margin: 4px 0px;
-    font-size: 12px;
-  }
-  .body div.tab-left .section hr {
-    margin: 10px 0px;
-    clear: both;
-  }
-  .body div.tab-left .section .float-right {
-    float: right;
-  }
-  .body div.tab-left .section .btn-section {
-    outline: none;
-    color: #7f7f7f;
-    border-color: transparent;
-    background-color: transparent;
-  }
-  .body div.tab-left .section .btn-section:hover,
-  .body div.tab-left .section .btn-section:active {
-    color: #d33558;
-    background-color: transparent;
-  }
-  .body div.tab-left .section .btn-section.actived {
-    color: #d33558;
-    background-color: transparent;
-  }
-  .body div.tab-left .section .btn-highlight:hover,
-  .body div.tab-left .section .btn-highlight:active {
-    color: #93549c;
-    background-color: transparent;
-  }
-  .body div.tab-left .section .btn-highlight.actived {
-    color: #93549c;
-    background-color: transparent;
-  }
-  .body div.tab-left .section .btn-love:hover,
-  .body div.tab-left .section .btn-love:active {
-    color: #f332c8;
-    background-color: transparent;
-  }
-  .body div.tab-left .section .btn-love.actived {
-    color: #f332c8;
-    background-color: transparent;
-  }
-  .body div.tab-left .section .btn-pin:hover,
-  .body div.tab-left .section .btn-pin:active {
-    color: #d33558;
-    background-color: transparent;
-  }
-  .body div.tab-left .section .btn-pin.actived {
-    color: #d33558;
-    background-color: transparent;
-  }
-  .body div.tab-left .section .btn-vote:hover,
-  .body div.tab-left .section .btn-vote:active {
-    color: #e47539;
-    background-color: transparent;
-  }
-  .body div.tab-left .section .btn-vote.actived {
-    color: #e47539;
-    background-color: transparent;
-  }
-  .body div.tab-left .section .btn-comment:hover,
-  .body div.tab-left .section .btn-comment:active {
-    color: #449af5;
-    background-color: transparent;
-  }
-  .body div.tab-left .section .btn-comment.actived {
-    color: #449af5;
-    background-color: transparent;
+    border: 0px solid #dfe0e4;
   }
 }
