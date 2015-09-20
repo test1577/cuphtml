@@ -57,6 +57,7 @@
     <script src="{{ $global['baseUrl'] }}assets/app/app.js"></script>
     <script src="{{ $global['baseUrl'] }}assets/app/BaseCtrl.js"></script>
     <script src="{{ $global['baseUrl'] }}assets/app/main.js"></script>
+    <script src="{{ $global['baseUrl'] }}assets/service/api.js"></script>
     
     
     </body>

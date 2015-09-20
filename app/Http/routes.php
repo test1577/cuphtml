@@ -10,20 +10,25 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
-Route::get('/login', ['as' => 'login', 'uses' => 'HomeController@authen']);
-Route::get('/register', ['as' => 'login', 'uses' => 'HomeController@register']);
-Route::get('/profile', ['as' => 'profile', 'uses' => 'HomeController@profile']);
+//frontend
+Route::get('/', ['as' => 'home', 'uses' => 'frontend\HomeController@index']);
+Route::get('/login', ['as' => 'login', 'uses' => 'frontend\HomeController@authen']);
+Route::get('/register', ['as' => 'login', 'uses' => 'frontend\HomeController@register']);
+Route::get('/profile', ['as' => 'profile', 'uses' => 'frontend\HomeController@profile']);
 Route::get('/menu', function () {
     return view('frontend/base/menu');
 });
+//api frontend
+Route::match(['get', 'post'],'/api-register', ['as' => 'profile', 'uses' => 'api\frontend\RegisterController@index']);
 
 // Authentication routes...
 //Route::get('auth/login', 'Auth\AuthController@getLogin');
 //Route::get('auth/login', 'Auth\AuthController@getLogin');
 //Route::post('auth/login', 'Auth\AuthController@postLogin');
 //Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+//backend
+Route::get('/backend', ['as' => 'profile', 'uses' => 'backend\AuthController@index']);
 
 // Registration routes...
 Route::get('auth/register', ['as' => 'profile', 'uses' => 'Auth\AuthController@create']);

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api\frontend;
 
 use App\Http\Controllers\URL;
 use Illuminate\Foundation\Bus\DispatchesJobs;
