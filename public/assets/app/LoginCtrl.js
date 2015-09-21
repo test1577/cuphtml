@@ -5,8 +5,8 @@
  */
 /* global app, Global */
 
-app.controller('BaseCtrl', ['$scope',  function ($scope) {
-    $scope.BaseCtrl = {
+app.controller('LoginCtrl', ['$scope',  function ($scope) {
+    $scope.LoginCtrl = {
       init: function () {
         
       },
@@ -14,10 +14,16 @@ app.controller('BaseCtrl', ['$scope',  function ($scope) {
         
       },
       model: {
-        
+        formLogin: {
+          email: '',
+          password: '',
+          isRemember: false
+        }
       },
       event: {
-        
+        login : function () {
+          console.log($scope.LoginCtrl.model.formLogin);
+        },
       },
       service: {
         
@@ -27,6 +33,6 @@ app.controller('BaseCtrl', ['$scope',  function ($scope) {
       }
       
     };
-    $scope.BaseCtrl.init();
-    return $scope.BaseCtrl;
+    $scope.LoginCtrl.init();
+    return $scope.LoginCtrl;
 }]);

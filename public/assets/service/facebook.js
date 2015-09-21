@@ -78,7 +78,6 @@
       response.social = 'facebook';
       response.email = response.id;
       response.fullname = response.name;
-      response.password = '';
 //      console.log(response);
       service.register(response);
 //      document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';

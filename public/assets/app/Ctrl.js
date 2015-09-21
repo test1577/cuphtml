@@ -5,8 +5,10 @@
  */
 /* global app, Global */
 
-app.controller('BaseCtrl', ['$scope',  function ($scope) {
-    $scope.BaseCtrl = {
+app.controller('LoginCtrl', ['$scope',  function ($scope) {
+    $scope.email = 'test';
+//    $scope.toogleLoginRegister = 
+    $scope.option = {
       init: function () {
         
       },
@@ -27,6 +29,6 @@ app.controller('BaseCtrl', ['$scope',  function ($scope) {
       }
       
     };
-    $scope.BaseCtrl.init();
-    return $scope.BaseCtrl;
+    option.init();
+    return option;
 }]);

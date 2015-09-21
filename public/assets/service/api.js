@@ -2,18 +2,27 @@ $(document).ready(function () {
   service = (function () {
     var option = {
       'init': function () {
+        option.setup.ajax();
       },
       'object': {
         'accessToken': ''
       },
+      'setup': {
+        'ajax': function () {
+          $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': Global._token
+            }
+          });
+        }
+      },
       'register': function ($params) {
-        console.log($params);
         $.ajax({
+          method:"POST",
           url: Global.baseurl+'api-register',
-          data: $params,
-          method: 'GET'
+          data: $params
         }).done(function( data ) {
-          console.log( data );
+//          console.log( data );
         });
       }
       

@@ -4,6 +4,7 @@
         <title>{{ $global['title'] }}</title>
         <meta name="baseUrl" content="{{ $global['baseUrl'] }}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="csrf-token" content="{{csrf_token()}}">
         <!-- plugins -->
 <!--        <link href="{{ $global['baseUrl'] }}assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="{{ $global['baseUrl'] }}assets/plugins/bootstrap-dialog/css/bootstrap-dialog.min.css" rel="stylesheet">
@@ -19,7 +20,8 @@
         <link rel="icon" type="image/png" href="{{ $global['baseUrl'] }}assets/icon/favicon.ico">
         
     </head>
-    <body ng-app="application" ng-controller="BaseCtrl">   
+    <body ng-app="application" ng-controller="BaseCtrl">  
+
       @include('frontend/base/menu')
       
       @if ($page === "feed")
@@ -58,6 +60,11 @@
     <script src="{{ $global['baseUrl'] }}assets/app/BaseCtrl.js"></script>
     <script src="{{ $global['baseUrl'] }}assets/app/main.js"></script>
     <script src="{{ $global['baseUrl'] }}assets/service/api.js"></script>
+    
+      @if ($page === "feed")
+      @elseif ($page === "login")
+      <script src="{{ $global['baseUrl'] }}assets/app/LoginCtrl.js"></script>
+      @endif
     
     
     </body>
