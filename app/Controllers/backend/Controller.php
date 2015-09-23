@@ -18,8 +18,13 @@ abstract class Controller extends BaseController
     public function globalData()
     {
      $data = [
-         'title' => 'cuphtml online',
-         'baseUrl' => asset('/')
+         'title' => 'AdminSystem Control',
+         'baseUrl' => asset('/'),
+         'systemVersion' => 'Version 1.1.0',
+         'systemCopyright' => 'Copyright &copy; 2015',
+         'systemReserved' => 'All rights reserved.',
+         'systemTitle' => 'cuphtml it solution',
+         'systemUrl' => 'http://cuphtml.com/'
      ]; 
      return $data;
     }
