@@ -40,12 +40,12 @@
             </div>
             <div class="form-group wow fadeInDown animated" data-wow-delay="0.5s">
               <div class="col-sm-12">
-                <button type="button" class="btn btn-primary btn-block" onclick="javascript:checkLoginState()"><i class="glyphicon glyphicon-asterisk"></i> Fackbook</button>
+                <button type="button" class="btn btn-primary btn-block" onclick="javascript:checkLoginState()"><i class="fa fa-facebook"></i> Fackbook</button>
               </div>
             </div>
             <div class="form-group wow fadeInDown animated" data-wow-delay="0.6s">
               <div class="col-sm-12">
-                <button type="button" class="btn btn-info btn-block" onclick="javascript:checkLoginState()"><i class="glyphicon glyphicon-asterisk"></i> Twitter</button>
+                <button type="button" class="btn btn-info btn-block" onclick="javascript:checkLoginState()"><i class="fa fa-twitter"></i> Twitter</button>
               </div>
             </div>
             <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" style="display:none;">

@@ -10,12 +10,12 @@
         <link href="{{ $global['baseUrl'] }}frontend/assets/plugins/bootstrap-dialog/css/bootstrap-dialog.min.css" rel="stylesheet">
         <link href="{{ $global['baseUrl'] }}frontend/assets/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
         <link href="{{ $global['baseUrl'] }}frontend/assets/plugins/owl-carousel/owl.theme.css" rel="stylesheet">
-        <link href="{{ $global['baseUrl'] }}frontend/assets/plugins/owl-carousel/owl.transitions.css" rel="stylesheet">
         
         <link href="{{ $global['baseUrl'] }}frontend/assets/css/icon/icon.css" rel="stylesheet">
         <link href="{{ $global['baseUrl'] }}frontend/assets/css/animate.css" rel="stylesheet">
         <link href="{{ $global['baseUrl'] }}frontend/assets/css/custom.css" rel="stylesheet">
         <link href="{{ $global['baseUrl'] }}frontend/assets/css/style.css?v=1" rel="stylesheet">-->
+        <link href="{{ $global['baseUrl'] }}frontend/assets/plugins/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet">
         <link href="{{ $global['baseUrl'] }}frontend/assets/css/source.min.css" rel="stylesheet">
         <link rel="icon" type="image/png" href="{{ $global['baseUrl'] }}frontend/assets/icon/favicon.ico">
         

@@ -12,4 +12,4 @@ require app_path('Http/Routes/backend/routesApi.php');
 |
 */
 //backend
-Route::get('/admin', ['as' => 'admin', 'uses' => 'backend\BackendController@index']);
+Route::get('/@min', ['as' => 'admin', 'uses' => 'backend\BackendController@index']);
