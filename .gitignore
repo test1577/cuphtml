@@ -6,3 +6,4 @@ Homestead.yaml
 .bowerrc
 .env.example
 .gitattributes
+resources/sources/
