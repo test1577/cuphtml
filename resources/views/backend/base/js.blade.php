@@ -9,6 +9,8 @@
     <script src="{{ $global['baseUrl'] }}backend/plugins/fastclick/fastclick.min.js"></script>
     <!-- AdminLTE App -->
     <script src="{{ $global['baseUrl'] }}backend/dist/js/app.min.js"></script>
+    <!-- Service App -->
+    <script src="{{ $global['baseUrl'] }}backend/service/api.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ $global['baseUrl'] }}backend/dist/js/demo.js"></script>
     <!-- page script -->

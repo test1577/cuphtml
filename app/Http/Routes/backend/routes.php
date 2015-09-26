@@ -1,6 +1,5 @@
 <?php
 
-require app_path('Http/Routes/backend/routesApi.php');
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -12,4 +11,16 @@ require app_path('Http/Routes/backend/routesApi.php');
 |
 */
 //backend
-Route::get('/@min', ['as' => 'admin', 'uses' => 'backend\BackendController@index']);
+//Route::get('/@min', ['as' => 'admin', 'uses' => 'backend\BackendController@index']);
+
+// Authentication routes...
+Route::get('auth/login', ['as' => 'login', 'uses' => 'backend\BackendController@login']);
+Route::post('auth/authen', ['as' => 'authen', 'uses' => 'backend\BackendController@authen']);
+//Route::get('auth/login', 'Auth\AuthController@getLogin');
+//Route::post('auth/login', 'Auth\AuthController@postLogin');
+//Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+Route::group(['prefix' => '@min'], function () {
+  
+    Route::get('/', ['middleware' => 'auth', 'uses' => 'backend\BackendController@index']);
+});

@@ -1,6 +1,5 @@
 <?php
 
-require app_path('Http/Routes/frontend/routesApi.php');
 /*
 |--------------------------------------------------------------------------
 | Application Routes

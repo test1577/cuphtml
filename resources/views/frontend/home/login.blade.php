@@ -40,7 +40,7 @@
             </div>
             <div class="form-group wow fadeInDown animated" data-wow-delay="0.5s">
               <div class="col-sm-12">
-                <button type="button" class="btn btn-primary btn-block" onclick="javascript:checkLoginState()"><i class="fa fa-facebook"></i> Fackbook</button>
+                <button type="button" class="btn btn-primary btn-block" onclick="javascript:facebookLogin()"><i class="fa fa-facebook"></i> Fackbook</button>
               </div>
             </div>
             <div class="form-group wow fadeInDown animated" data-wow-delay="0.6s">
@@ -50,8 +50,8 @@
             </div>
             <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" style="display:none;">
             </fb:login-button>
-            <div id="status">
-            </div>
+<!--            <div id="status">
+            </div>-->
           </form>
           <hr>
         </div>
