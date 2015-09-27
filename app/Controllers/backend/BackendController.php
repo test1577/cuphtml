@@ -1,78 +1,83 @@
-<?php 
+<?php
 
 namespace App\Controllers\backend;
 
-use Validator;
+use Hash;
 use Auth;
+use Session;
+use Redirect;
+use Validator;
 use Illuminate\Support\Facades\Input;
+use App\Model\backend\AdminModel;
 use App\Controllers\backend\Controller;
+use App\Component\backend\BaseComponent;
 
-class BackendController extends Controller
-{
-    public function __construct()
-    {
-      
-    }
-    protected function index()
-    {
-      $data = array(
-          'global' => Controller::globalData(),
-          'page' => 'feed',
-          'title' => 'cuphtml'
-      );
-       return view('backend/home',$data);
-    }
+class BackendController extends Controller {
 
-    protected function login($statusLogin = '') {
-      $data = array(
-          'global' => Controller::globalData(),
-          'page' => 'feed',
-          'title' => 'cuphtml',
-          'status' => $statusLogin
-      );
-      return view('backend/login', $data);
-    }
+  public function __construct() {
+    
+  }
 
-    protected function authen() {
-      
-  // validate the info, create rules for the inputs
-      $rules = array(
-          'email' => 'required', // make sure the email is an actual email
-          'password' => 'required|alphaNum|min:3' // password can only be alphanumeric and has to be greater than 3 characters
-      );
+  protected function index() {
+    $data = array(
+        'global' => Controller::globalData(),
+        'page' => 'feed',
+        'title' => 'cuphtml'
+    );
+    return view('backend/home', $data);
+  }
 
-  // run the validation rules on the inputs from the form
-      $validator = Validator::make(Input::all(), $rules);
+  protected function login($statusLogin = '') {
+    $data = array(
+        'global' => Controller::globalData(),
+        'page' => 'feed',
+        'title' => 'cuphtml',
+        'status' => $statusLogin
+    );
+    return view('backend/login', $data);
+  }
 
-  // if the validator fails, redirect back to the form
-      if ($validator->fails()) {
-          echo 'fail!';
-  //      return Redirect::to('login')
-  //                      ->withErrors($validator) // send back all errors to the login form
-  //                      ->withInput(Input::except('password')); // send back the input (not the password) so that we can repopulate the form
-      } else {
+  protected function register() {
+    $admin = new AdminModel;
+    $admin->email = 'admin';
+    $admin->password = Hash::make('admin');
+    $admin->name = 'CUPHTML';
+    $admin->save();
+    return $admin;
+  }
 
-        // create our user data for the authentication
-        $userdata = array(
-            'admin_email' => Input::get('email'),
-            'admin_password' => Input::get('password')
-        );
-
-        // attempt to do the login
+  protected function authen() {
+    // Getting all post data
+    $data = Input::all();
+    // Applying validation rules.
+    $rules = array(
+        'email' => 'required|min:4',
+        'password' => 'required|min:4',
+    );
+    $validator = Validator::make($data, $rules);
+    if ($validator->fails()) {
+      // If validation falis redirect back to login.
+      Session::flash('error', 'Something went wrong');
+      return Redirect::to('auth/login')->withInput(Input::except('password'))->withErrors($validator);
+    } else {
+      $userdata = [
+          'email' => Input::get('email'),
+          'password' => Input::get('password')
+      ];
+//      if ( !empty(Input::get('remember')) &&  Input::get('remember') === 'on') {
+//        $userdata['remember'] = true;
+//      }
+      // doing login.
+      if (Auth::validate($userdata)) {
         if (Auth::attempt($userdata)) {
-
-          // validation successful!
-          // redirect them to the secure section or whatever
-          // return Redirect::to('secure');
-          // for now we'll just echo success (even though echoing in a controller is bad)
-          echo 'SUCCESS!';
-        } else {
-          echo 'fail!';
-
-          // validation not successful, send back to form 
-  //        return redirect()->route('login');
+          return Redirect::intended('/@min');
         }
+      } else {
+        // if any error send back with message.
+        Session::flash('error', 'Something went wrong');
+        return Redirect::to('auth/login');
       }
     }
-    
+  }
+
 }

@@ -8,11 +8,6 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-
-use App\Flight;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-
 class AdminModel extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
     use Authenticatable, CanResetPassword;
@@ -52,7 +47,7 @@ class AdminModel extends Model implements AuthenticatableContract, CanResetPassw
     }
     
     static function findEmail($email) {
-      return self::where('user_email', $email)
+      return self::where('email', $email)
                ->get();
     }
 }

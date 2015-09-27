@@ -32,5 +32,5 @@ Route::any('/api-register', ['as' => 'profile', 'uses' => 'api\frontend\Register
 Route::get('/backend', ['as' => 'profile', 'uses' => 'backend\AuthController@index']);
 
 // Registration routes...
-Route::get('auth/register', ['as' => 'profile', 'uses' => 'Auth\AuthController@create']);
+//Route::get('auth/register', ['as' => 'profile', 'uses' => 'Auth\AuthController@create']);
 //Route::post('auth/register', 'Auth\AuthController@postRegister');

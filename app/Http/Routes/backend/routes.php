@@ -16,6 +16,7 @@
 // Authentication routes...
 Route::get('auth/login', ['as' => 'login', 'uses' => 'backend\BackendController@login']);
 Route::post('auth/authen', ['as' => 'authen', 'uses' => 'backend\BackendController@authen']);
+Route::get('auth/register', ['as' => 'register', 'uses' => 'backend\BackendController@register']);
 //Route::get('auth/login', 'Auth\AuthController@getLogin');
 //Route::post('auth/login', 'Auth\AuthController@postLogin');
 //Route::get('auth/logout', 'Auth\AuthController@getLogout');

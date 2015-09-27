@@ -13,15 +13,22 @@
         <a href="#"><b>CUP</b>HTML</a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
+        @if(Session::has('error'))
+        <div class="alert-box success">
+          <h2>{{ Session::get('error') }}</h2>
+        </div>
+        @endif
         <form action="{{ URL::route('authen') }}" method="post">
           <div class="form-group has-feedback">
             <input name="email" type="text" class="form-control" placeholder="Email" required>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            <p class="errors">{{$errors->first('email')}}</p>
           </div>
           <div class="form-group has-feedback">
             <input name="password" type="password" class="form-control" placeholder="Password" required>
             <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            <p class="errors">{{$errors->first('password')}}</p>
           </div>
           <div class="row">
             <div class="col-xs-8">
