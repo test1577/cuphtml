@@ -54,7 +54,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" class="form-control pull-right active" name="daterange">
+                  <input type="text" class="form-control pull-right active" name="daterange" autocomplete="off">
                   <input name="started_at" type="text" class="form-control" value="{{ $system_info['started_at'] }}">
                   <input name="end_at" type="text" class="form-control" value="{{ $system_info['end_at'] }}">
                 </div>

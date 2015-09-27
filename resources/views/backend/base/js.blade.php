@@ -20,10 +20,12 @@
 <!-- page script -->
 <script>
 $(function () {
+//  console.log(foo); // bar
+//console.log(age); // 29
   //Date range picker with time picker
+  var valStartDate = $('input[name="started_at"]').val();
+  var valEndDate = $('input[name="end_at"]').val();
   var $daterange = $('input[name="daterange"]').daterangepicker();
-  var $daterange.data('daterangepicker').setStartDate('2014-03-01');
-  var $daterange.data('daterangepicker').setEndDate('2014-03-31');
   $daterange.on('apply.daterangepicker', function (ev, picker) {
     $('input[name="started_at"]').val(picker.startDate.format('YYYY-MM-DD'));
     $('input[name="end_at"]').val(picker.endDate.format('YYYY-MM-DD'));

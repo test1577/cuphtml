@@ -7,6 +7,7 @@ use Auth;
 use Session;
 use Redirect;
 use Validator;
+use JavaScript;
 use Illuminate\Support\Facades\Input;
 use App\Model\backend\AdminModel;
 use App\Controllers\backend\Controller;
@@ -22,6 +23,10 @@ class BackendController extends Controller {
   protected function index() {
     $system_model = new SystemInfoModel;
     $system_info = $system_model::findorfail(1);
+    JavaScript::put([
+        'foo' => 'bar',
+        'age' => 29
+    ]);
     $user = Auth::user();
     $user['last_created'] = Controller::timeElapsedString($user['created_at']);
     $user['last_updated'] = Controller::timeElapsedString($user['updated_at']);
