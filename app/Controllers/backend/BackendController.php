@@ -19,10 +19,14 @@ class BackendController extends Controller {
   }
 
   protected function index() {
+    $user = Auth::user();
+    $user['last_created'] = Controller::timeElapsedString($user['created_at']);
+    $user['last_updated'] = Controller::timeElapsedString($user['updated_at']);
     $data = array(
-        'global' => Controller::globalData(),
-        'page' => 'feed',
-        'title' => 'cuphtml'
+        'global'=> Controller::globalData(),
+        'page'=> 'feed',
+        'title'=> 'cuphtml',
+        'user'=> $user
     );
     return view('backend/home', $data);
   }
@@ -78,6 +82,10 @@ class BackendController extends Controller {
         return Redirect::to('auth/login');
       }
     }
+  }
+  
+  protected function logout($statusLogin = '') {
+        return Redirect::to('auth/login');
   }
 
 }
