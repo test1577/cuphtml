@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Input;
 use App\Model\backend\AdminModel;
 use App\Controllers\backend\Controller;
 use App\Component\backend\BaseComponent;
+use App\Model\backend\SystemInfoModel;
 
 class BackendController extends Controller {
 
@@ -19,19 +20,26 @@ class BackendController extends Controller {
   }
 
   protected function index() {
+    $system_model = new SystemInfoModel;
+    $system_info = $system_model::findorfail(1);
     $user = Auth::user();
     $user['last_created'] = Controller::timeElapsedString($user['created_at']);
     $user['last_updated'] = Controller::timeElapsedString($user['updated_at']);
     $data = array(
-        'global'=> Controller::globalData(),
-        'page'=> 'feed',
-        'title'=> 'cuphtml',
-        'user'=> $user
+        'global' => Controller::globalData(),
+        'page' => 'feed',
+        'title' => 'cuphtml',
+        'user' => $user,
+        'system_info' => $system_info,
     );
     return view('backend/home', $data);
   }
 
   protected function login($statusLogin = '') {
+    if (Auth::check()) {
+      // The user is logged in...
+      return Redirect::intended('/@min');
+    }
     $data = array(
         'global' => Controller::globalData(),
         'page' => 'feed',
@@ -83,9 +91,23 @@ class BackendController extends Controller {
       }
     }
   }
-  
-  protected function logout($statusLogin = '') {
-        return Redirect::to('auth/login');
+
+  protected function logout() {
+    Auth::logout();
+    return Redirect::to('auth/login');
+  }
+
+  protected function updateSystem() {
+    $system_model = SystemInfoModel::where('id', 1)
+            ->update([
+                'title'=> Input::get('title'),
+                'description'=> Input::get('description'),
+                'keywords'=> Input::get('keywords'),
+                'started_at'=> Input::get('started_at'),
+                'end_at'=> Input::get('end_at')
+            ]);
+    return Redirect::to('/@min');
+    
   }
 
 }

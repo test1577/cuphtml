@@ -22,7 +22,8 @@ Route::get('auth/logout', ['as' => 'admin/logout', 'uses' => 'backend\BackendCon
 //Route::post('auth/login', 'Auth\AuthController@postLogin');
 //Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
-Route::group(['prefix' => '@min'], function () {
+Route::group(['prefix' => '@min', 'middleware' => 'auth'], function () {
   
-    Route::get('/', ['middleware' => 'auth', 'uses' => 'backend\BackendController@index']);
+    Route::get('/', ['uses' => 'backend\BackendController@index']);
+    Route::post('/system-info', ['as' => 'update/system', 'uses' => 'backend\BackendController@updateSystem']);
 });

@@ -2,7 +2,6 @@ $(document).ready(function () {
   service = (function () {
     var option = {
       'init': function () {
-        console.log('sdsd');
         option.setup.ajax();
       },
       'object': {

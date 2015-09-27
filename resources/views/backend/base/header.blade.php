@@ -110,11 +110,11 @@
                     <img src="{{ $global['baseUrl'] }}backend/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                     <p>
                       {{ $user['name'] }} - Admin
-                      <small>Member since {{ $user['last_created'] }}</small>
+                      <small>Last Login : {{ $user['last_updated'] }}</small>
                     </p>
                   </li>
                   <!-- Menu Body -->
-                  <li class="user-body">
+<!--                  <li class="user-body">
                     <div class="col-xs-4 text-center">
                       <a href="#">Followers</a>
                     </div>
@@ -124,7 +124,7 @@
                     <div class="col-xs-4 text-center">
                       <a href="#">Friends</a>
                     </div>
-                  </li>
+                  </li>-->
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
