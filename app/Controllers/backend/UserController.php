@@ -83,7 +83,7 @@ class UserController extends Controller {
   protected function updateStatus($id, $status) {
     $result = [
         'status' => false,
-        'serviceName' => 'user-status',
+        'serviceName' => 'status',
           'result' => [
               'id' => $id,
               'status' => $status
@@ -109,7 +109,7 @@ class UserController extends Controller {
   protected function deleteWhere($ids) {
     $result = [
         'status' => false,
-        'serviceName' => 'user-delete-where',
+        'serviceName' => 'delete-where',
           'result' => [
               'id' => $ids
           ]

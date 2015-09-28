@@ -22,6 +22,9 @@
             <span class="info-box-text">Domain : {{ $global['baseUrl'] }}</span>
             <span class="info-box-text">Remaining Life's  : ( {{ $systemInfo['end_at'] }} )</span>
             <span id="remainingDays" class="info-box-number"></span>
+            <div class="progress">
+                    <div class="progress-bar bg-green" style="width: 70%"></div>
+                  </div>
           </div><!-- /.info-box-content -->
         </div><!-- /.info-box -->
       </div>

@@ -51,7 +51,9 @@ $(function () {
           $el.parent().find("[name='my-checkbox']").bootstrapSwitch('state', !value, true);
         },
         setDataTable: function () {
-          $('#indexTable').DataTable();
+          $('#indexTable').DataTable({
+              "order": [[ 1, "desc" ]]
+          });
         },
         deleteTableRow: function (params) {
           for( var key in params) {

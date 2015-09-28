@@ -24,7 +24,7 @@ $(document).ready(function () {
       },
       status: {
         success: function (res) {
-          if (res.serviceName === 'user-delete-where') {
+          if (res.serviceName === 'delete-where') {
             cuphtml.event.deleteTableRow(res.result.id);
           }
           var setOption = {
@@ -34,7 +34,7 @@ $(document).ready(function () {
           cuphtml.event.setAlertApi(setOption);
         },
         fail: function (res) {
-          if (res.serviceName === 'user-status') {
+          if (res.serviceName === 'status') {
             cuphtml.event.inputSwitchFail(res);
           }
           var setOption = {
