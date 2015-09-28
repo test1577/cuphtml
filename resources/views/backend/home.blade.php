@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{{ $global['title'] }}</title>
+        <title>{{ $title }}</title>
         @include('backend/base/meta')
     </head>
     
   <body class="hold-transition skin-blue sidebar-mini">
+      @if(Session::has('systemSuccess'))
+      <div cuphtml-alert cuphtml-alert-status="success"></div>
+      @elseif(Session::has('systemError'))
+      <div cuphtml-alert cuphtml-alert-status="error"></div>
+      @endif
+      
     <div class="wrapper">
 
         @include('backend/base/header')
       <!-- Left side column. contains the logo and sidebar -->
         @include('backend/base/menu')
       <!-- Content Wrapper. Contains page content -->
-        @include('backend/dashboard')
+        @if ($page === 'Dashboard')
+          @include('backend/dashboard')
+        @elseif ($page === 'User')
+          @include('backend/user/index')
+        @endif
       <!-- /.content-wrapper -->
         @include('backend/base/footer')
       <!-- Control Sidebar -->

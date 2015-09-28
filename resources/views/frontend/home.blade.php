@@ -21,7 +21,6 @@
         
     </head>
     <body ng-app="application" ng-controller="BaseCtrl">  
-
       @include('frontend/base/menu')
       
       @if ($page === "feed")

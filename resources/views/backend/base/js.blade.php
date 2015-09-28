@@ -3,6 +3,10 @@
 <script src="{{ $global['baseUrl'] }}backend/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 <!-- Bootstrap 3.3.5 -->
 <script src="{{ $global['baseUrl'] }}backend/bootstrap/js/bootstrap.min.js"></script>
+<!-- Bootstrap Switch -->
+<script src="{{ $global['baseUrl'] }}backend/bootstrap/bootstrap-switch/bootstrap-switch.min.js"></script>
+<!-- Bootstrap Dialog -->
+<script src="{{ $global['baseUrl'] }}backend/bootstrap/bootstrap-dialog/bootstrap-dialog.min.js"></script>
 <!-- daterange picker -->
 <script src="{{ $global['baseUrl'] }}backend/plugins/daterangepicker/moment.min.js"></script>
 <script src="{{ $global['baseUrl'] }}backend/plugins/daterangepicker/daterangepicker.js"></script>
@@ -14,21 +18,13 @@
 <script src="{{ $global['baseUrl'] }}backend/dist/js/app.min.js"></script>
 <!-- Service App -->
 <script src="{{ $global['baseUrl'] }}backend/service/api.js"></script>
+<!-- Helper App -->
+<script src="{{ $global['baseUrl'] }}backend/helper/myhelper.js"></script>
+<!-- DataTables -->
+<script src="{{ $global['baseUrl'] }}backend/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="{{ $global['baseUrl'] }}backend/plugins/datatables/dataTables.bootstrap.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ $global['baseUrl'] }}backend/dist/js/demo.js"></script>
 
 <!-- page script -->
-<script>
-$(function () {
-//  console.log(foo); // bar
-//console.log(age); // 29
-  //Date range picker with time picker
-  var valStartDate = $('input[name="started_at"]').val();
-  var valEndDate = $('input[name="end_at"]').val();
-  var $daterange = $('input[name="daterange"]').daterangepicker();
-  $daterange.on('apply.daterangepicker', function (ev, picker) {
-    $('input[name="started_at"]').val(picker.startDate.format('YYYY-MM-DD'));
-    $('input[name="end_at"]').val(picker.endDate.format('YYYY-MM-DD'));
-  });
-});
-</script>
+<script src="{{ $global['baseUrl'] }}backend/js/app.js"></script>

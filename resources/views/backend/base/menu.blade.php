@@ -25,14 +25,15 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+            <li class="treeview  @if ($page === 'Dashboard') active @endif">
+              <a href="{{ URL::route('dashboard') }}">
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
               </a>
-              <ul class="treeview-menu">
-                <li><a href="{{ $global['baseUrl'] }}backend/index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                <li><a href="{{ $global['baseUrl'] }}backend/index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-              </ul>
+            </li>
+            <li class="treeview  @if ($page === 'User') active @endif">
+              <a href="{{ URL::route('user/index') }}">
+                <i class="fa fa-user"></i> <span>Users</span>
+              </a>
             </li>
             <li class="treeview">
               <a href="#">
@@ -52,14 +53,14 @@
                 <i class="fa fa-th"></i> <span>Widgets</span> <small class="label pull-right bg-green">new</small>
               </a>
             </li>
-            <li class="treeview active">
+            <li class="treeview">
               <a href="#">
                 <i class="fa fa-pie-chart"></i>
                 <span>Charts</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li class="active"><a href="chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
+                <li><a href="chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
                 <li><a href="morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
                 <li><a href="flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
                 <li><a href="inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>

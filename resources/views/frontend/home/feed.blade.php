@@ -11,7 +11,7 @@
 
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-              <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
+              <img class="img-responsive" src="{{ $global['baseUrl'] }}frontend/assets/images/hero.jpg">
               <div class="caption">
                 <h4 class="topic">Thumbnail label</h4>
                 <div class="description">
@@ -36,7 +36,7 @@
 
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-              <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
+              <img class="img-responsive" src="{{ $global['baseUrl'] }}frontend/assets/images/hero.jpg">
               <div class="caption">
                 <h4 class="topic">Thumbnail label</h4>
                 <div class="description">
@@ -58,7 +58,7 @@
 
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-              <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
+              <img class="img-responsive" src="{{ $global['baseUrl'] }}frontend/assets/images/hero.jpg">
               <div class="caption">
                 <h4 class="topic">Thumbnail label</h4>
                 <div class="description">
@@ -80,7 +80,7 @@
 
           <div class="col-sm-6 col-md-4 hidden-xs">
             <div class="thumbnail">
-              <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
+              <img class="img-responsive" src="{{ $global['baseUrl'] }}frontend/assets/images/hero.jpg">
               <div class="caption">
                 <h4 class="topic">Thumbnail label</h4>
                 <div class="description">
@@ -102,7 +102,7 @@
 
           <div class="col-sm-6 col-md-4 hidden-xs">
             <div class="thumbnail">
-              <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
+              <img class="img-responsive" src="{{ $global['baseUrl'] }}frontend/assets/images/hero.jpg">
               <div class="caption">
                 <h4 class="topic">Thumbnail label</h4>
                 <div class="description">
@@ -124,7 +124,7 @@
 
           <div class="col-sm-6 col-md-4 hidden-xs">
             <div class="thumbnail">
-              <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
+              <img class="img-responsive" src="{{ $global['baseUrl'] }}frontend/assets/images/hero.jpg">
               <div class="caption">
                 <h4 class="topic">Thumbnail label</h4>
                 <div class="description">
@@ -159,7 +159,7 @@
 
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-              <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
+              <img class="img-responsive" src="{{ $global['baseUrl'] }}frontend/assets/images/hero.jpg">
               <div class="caption">
                 <h4 class="topic">Thumbnail label</h4>
                 <div class="description">
@@ -181,7 +181,7 @@
 
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-              <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
+              <img class="img-responsive" src="{{ $global['baseUrl'] }}frontend/assets/images/hero.jpg">
               <div class="caption">
                 <h4 class="topic">Thumbnail label</h4>
                 <div class="description">
@@ -203,7 +203,7 @@
 
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-              <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
+              <img class="img-responsive" src="{{ $global['baseUrl'] }}frontend/assets/images/hero.jpg">
               <div class="caption">
                 <h4 class="topic">Thumbnail label</h4>
                 <div class="description">
@@ -225,7 +225,7 @@
 
           <div class="col-sm-6 col-md-4 hidden-xs">
             <div class="thumbnail">
-              <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
+              <img class="img-responsive" src="{{ $global['baseUrl'] }}frontend/assets/images/hero.jpg">
               <div class="caption">
                 <h4 class="topic">Thumbnail label</h4>
                 <div class="description">
@@ -247,7 +247,7 @@
 
           <div class="col-sm-6 col-md-4 hidden-xs">
             <div class="thumbnail">
-              <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
+              <img class="img-responsive" src="{{ $global['baseUrl'] }}frontend/assets/images/hero.jpg">
               <div class="caption">
                 <h4 class="topic">Thumbnail label</h4>
                 <div class="description">
@@ -269,7 +269,7 @@
 
           <div class="col-sm-6 col-md-4 hidden-xs">
             <div class="thumbnail">
-              <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
+              <img class="img-responsive" src="{{ $global['baseUrl'] }}frontend/assets/images/hero.jpg">
               <div class="caption">
                 <h4 class="topic">Thumbnail label</h4>
                 <div class="description">
@@ -313,7 +313,7 @@
             <span><i class="glyphicon glyphicon-time"></i> 1 mins</span>
           </div>
           <hr>
-          <img class="img-responsive" src="{{ $global['baseUrl'] }}assets/images/hero.jpg">
+          <img class="img-responsive" src="{{ $global['baseUrl'] }}frontend/assets/images/hero.jpg">
           <div class="description">
             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta</p>
           </div>
@@ -362,9 +362,9 @@
           </div>
           <hr>
           <div id="slide-cuphtml-banner" class="owl-carousel owl-theme">
-            <div class="item"><img src="{{ $global['baseUrl'] }}assets/plugins/owl-carousel/images/b1.jpg" alt="The Last of us"></div>
-            <div class="item"><img src="{{ $global['baseUrl'] }}assets/plugins/owl-carousel/images/b2.jpg" alt="GTA V"></div>
-            <div class="item"><img src="{{ $global['baseUrl'] }}assets/plugins/owl-carousel/images/b3.jpg" alt="Mirror Edge"></div>
+            <div class="item"><img src="{{ $global['baseUrl'] }}frontend/assets/plugins/owl-carousel/images/b1.jpg" alt="The Last of us"></div>
+            <div class="item"><img src="{{ $global['baseUrl'] }}frontend/assets/plugins/owl-carousel/images/b2.jpg" alt="GTA V"></div>
+            <div class="item"><img src="{{ $global['baseUrl'] }}frontend/assets/plugins/owl-carousel/images/b3.jpg" alt="Mirror Edge"></div>
           </div>
         </div>
     </div>

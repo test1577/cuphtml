@@ -24,6 +24,17 @@ Route::get('auth/logout', ['as' => 'admin/logout', 'uses' => 'backend\BackendCon
 
 Route::group(['prefix' => '@min', 'middleware' => 'auth'], function () {
   
-    Route::get('/', ['uses' => 'backend\BackendController@index']);
+    //dashboard
+    Route::get('/', [ 'as' => 'dashboard', 'uses' => 'backend\BackendController@index']);
     Route::post('/system-info', ['as' => 'update/system', 'uses' => 'backend\BackendController@updateSystem']);
+    
+    //user
+    Route::get('/user/index', ['as' => 'user/index', 'uses' => 'backend\UserController@index']);
+    Route::get('/user/add', ['as' => 'user/add', 'uses' => 'backend\UserController@add']);
+    Route::get('/user/edit', ['as' => 'user/edit', 'uses' => 'backend\UserController@edit']);
+    //user api
+    Route::post('api-user-add', ['as' => 'api-user-add', 'uses' => 'backend\UserController@getAdd']);
+    Route::post('api-user-edit', ['as' => 'api-user-edit', 'uses' => 'backend\UserController@getEdit']);
+    Route::post('api-user-status', ['as' => 'api-user-status', 'uses' => 'backend\UserController@getStatus']);
+    
 });

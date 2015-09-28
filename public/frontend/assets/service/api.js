@@ -1,33 +1,44 @@
 $(document).ready(function () {
   service = (function () {
     var option = {
-      'init': function () {
+      init: function () {
         option.setup.ajax();
       },
-      'object': {
+      object: {
         'accessToken': ''
       },
-      'setup': {
-        'ajax': function () {
+      setup: {
+        ajax: function () {
           $.ajaxSetup({
             headers: {
-                'X-CSRF-TOKEN': Global._token
+              'X-CSRF-TOKEN': Global._token
             }
           });
         }
       },
-      'register': function ($params) {
+      api: {
+        whereSwicth: function (nameService, $params) {
+          $.ajax({
+            method: "POST",
+            url: Global.baseurl + 'api-' + nameService,
+            data: $params
+          }).done(function (data) {
+            console.log(data);
+          });
+        }
+      },
+      register: function ($params) {
         $.ajax({
-          method:"POST",
-          url: Global.baseurl+'api-register',
+          method: "POST",
+          url: Global.baseurl + 'api-register',
           data: $params
-        }).done(function( data ) {
+        }).done(function (data) {
 //          console.log( data );
         });
       }
-      
+
     };
-    
+
     option.init();
     return option;
   })(jQuery);

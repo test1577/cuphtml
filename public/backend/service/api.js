@@ -1,33 +1,82 @@
+/* global Global */
+  var messageConfig = {};
+  messageConfig['success'] = 'Saved Success.';
+  messageConfig['error'] = 'Something went wrong.';
+  messageConfig['loseInternet'] = 'No internet access.';
+  messageConfig['apiError'] = 'API STATUS ERROR';
+  var baseurl = $('meta[name="baseUrl"]').attr('content');
+  var _token = $('meta[name="csrf-token"]').attr('content');
+  var Global = {};
+  Global['handle'] = {};
+  Global['baseurl'] = baseurl;
+  Global['uploads'] = baseurl+"uploads/";
+  Global['assets'] = baseurl+"assets/";
+  Global['_token'] = _token;
+
 $(document).ready(function () {
   service = (function () {
     var option = {
-      'init': function () {
+      init: function () {
         option.setup.ajax();
       },
-      'object': {
-        'accessToken': ''
+      object: {
+        accessToken: ''
       },
-      'setup': {
-        'ajax': function () {
+      status: {
+        success: function (res) {
+          var setOption = {
+            type: 'modal-success',
+            message: messageConfig['success']
+          };
+          cuphtml.event.setAlertApi(setOption);
+        },
+        fail: function (res) {
+          if (res.serviceName === 'user-status') {
+            cuphtml.event.inputSwitchFail(res);
+          }
+          var setOption = {
+            type: 'modal-danger',
+            message: messageConfig['error']
+          };
+          cuphtml.event.setAlertApi(setOption);
+        },
+      },
+      setup: {
+        ajax: function () {
           $.ajaxSetup({
             headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              'X-CSRF-TOKEN': Global._token
             }
           });
         }
       },
-      'register': function ($params) {
+      api: {
+        whereSwicth: function (nameService, params) {
+          $.ajax({
+            method: "POST",
+            url: Global.baseurl + '@min/api-' + nameService,
+            data: params
+          }).done(function (res) {
+            if(res.status){
+              option.status.success(res);
+            }else{
+              option.status.fail(res);
+            }
+          });
+        }
+      },
+      register: function ($params) {
         $.ajax({
-          method:"POST",
-          url: Global.baseurl+'api-register',
+          method: "POST",
+          url: Global.baseurl + 'api-register',
           data: $params
-        }).done(function( data ) {
+        }).done(function (data) {
 //          console.log( data );
         });
       }
-      
+
     };
-    
+
     option.init();
     return option;
   })(jQuery);

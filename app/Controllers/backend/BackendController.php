@@ -2,12 +2,13 @@
 
 namespace App\Controllers\backend;
 
-use Hash;
-use Auth;
-use Session;
-use Redirect;
-use Validator;
-use JavaScript;
+use Hash,
+    URL,
+    Auth,
+    Session,
+    Redirect,
+    Validator,
+    JavaScript;
 use Illuminate\Support\Facades\Input;
 use App\Model\backend\AdminModel;
 use App\Controllers\backend\Controller;
@@ -16,27 +17,32 @@ use App\Model\backend\SystemInfoModel;
 
 class BackendController extends Controller {
 
+  protected $global;
+  protected $user;
+  protected $page;
   public function __construct() {
-    
+    $this->global = Controller::GLOBALDATA;
+    $this->global['baseUrl'] = URL::to('/').'/';
+    $this->page = 'Dashboard';
   }
 
   protected function index() {
+    $this->user = Auth::user();
+    $this->user['last_created'] = Controller::timeElapsedString($this->user['created_at']);
+    $this->user['last_updated'] = Controller::timeElapsedString($this->user['updated_at']);
     $system_model = new SystemInfoModel;
     $system_info = $system_model::findorfail(1);
-    JavaScript::put([
-        'foo' => 'bar',
-        'age' => 29
-    ]);
-    $user = Auth::user();
-    $user['last_created'] = Controller::timeElapsedString($user['created_at']);
-    $user['last_updated'] = Controller::timeElapsedString($user['updated_at']);
-    $data = array(
-        'global' => Controller::globalData(),
-        'page' => 'feed',
-        'title' => 'cuphtml',
-        'user' => $user,
+//    JavaScript::put([
+//        'foo' => 'bar',
+//        'age' => 29
+//    ]);
+    $data = [
+        'global' => $this->global,
+        'page' => $this->page,
+        'title' => $this->page.$this->global['title'],
+        'user' => $this->user,
         'system_info' => $system_info,
-    );
+    ];
     return view('backend/home', $data);
   }
 
@@ -46,7 +52,7 @@ class BackendController extends Controller {
       return Redirect::intended('/@min');
     }
     $data = array(
-        'global' => Controller::globalData(),
+        'global' => $this->global,
         'page' => 'feed',
         'title' => 'cuphtml',
         'status' => $statusLogin
@@ -91,7 +97,7 @@ class BackendController extends Controller {
         }
       } else {
         // if any error send back with message.
-        Session::flash('error', 'Something went wrong');
+        Session::flash('systemError', $this->global['msgStatus']['error']);
         return Redirect::to('auth/login');
       }
     }
@@ -103,7 +109,7 @@ class BackendController extends Controller {
   }
 
   protected function updateSystem() {
-    $system_model = SystemInfoModel::where('id', 1)
+    $query = SystemInfoModel::where('id', Input::get('id'))
             ->update([
                 'title'=> Input::get('title'),
                 'description'=> Input::get('description'),
@@ -111,6 +117,11 @@ class BackendController extends Controller {
                 'started_at'=> Input::get('started_at'),
                 'end_at'=> Input::get('end_at')
             ]);
+    if ($query) {
+      Session::flash('systemSuccess', $this->global['msgStatus']['success']);
+    }else {
+      Session::flash('systemError', $this->global['msgStatus']['error']);
+    }
     return Redirect::to('/@min');
     
   }

@@ -13,11 +13,11 @@
         <a href="#"><b>CUP</b>HTML</a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
-        @if(Session::has('error'))
+        @if(Session::has('systemError'))
         <div class="alert alert-warning alert-dismissable">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
           <h4><i class="icon fa fa-warning"></i> Alert!</h4>
-          {{ Session::get('error') }}
+          {{ Session::get('systemError') }}
         </div>
         @endif
         <form action="{{ URL::route('authen') }}" method="post">

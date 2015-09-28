@@ -12,24 +12,23 @@ abstract class Controller extends BaseController {
 
   use DispatchesJobs,
       ValidatesRequests;
-
-  public function __construct() {
-    
-  }
-
-  public function globalData() {
-    $data = [
-        'title' => 'AdminSystem Control',
-        'baseUrl' => asset('/'),
+  
+  const GLOBALDATA = [
+        'title' => ' - AdminSystem Control',
         'systemVersion' => 'Version 1.1.0',
         'systemCopyright' => 'Copyright &copy; 2015',
         'systemReserved' => 'All rights reserved.',
         'systemTitle' => 'cuphtml it solution',
-        'systemUrl' => 'http://cuphtml.com/'
+        'systemUrl' => 'http://cuphtml.com/',
+        'msgStatus' => [
+            'success' => 'Saved Success.',
+            'error' => 'Something went wrong.'
+        ]
     ];
-    return $data;
+  
+  public function __construct() {
   }
-
+  
   public function timeElapsedString($datetime, $full = false) {
     $now = new DateTime;
     $ago = new DateTime($datetime);
