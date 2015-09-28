@@ -51,7 +51,20 @@ $(document).ready(function () {
         }
       },
       api: {
-        whereSwicth: function (nameService, params) {
+        swicthWhere: function (nameService, params) {
+          $.ajax({
+            method: "POST",
+            url: Global.baseurl + '@min/api-' + nameService,
+            data: params
+          }).done(function (res) {
+            if(res.status){
+              option.status.success(res);
+            }else{
+              option.status.fail(res);
+            }
+          });
+        },
+        deleteWhere: function (nameService, params) {
           $.ajax({
             method: "POST",
             url: Global.baseurl + '@min/api-' + nameService,

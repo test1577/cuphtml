@@ -3,7 +3,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Dashboard
+      <i class="fa fa-dashboard"></i> Dashboard
       <small>information</small>
     </h1>
     <ol class="breadcrumb">
@@ -15,11 +15,21 @@
   <section class="content">
 
     <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon  bg-green"><i class="fa fa-leaf"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">Domain : {{ $global['baseUrl'] }}</span>
+            <span class="info-box-text">Remaining Life's  : ( {{ $systemInfo['end_at'] }} )</span>
+            <span id="remainingDays" class="info-box-number"></span>
+          </div><!-- /.info-box-content -->
+        </div><!-- /.info-box -->
+      </div>
       <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-aqua">
           <div class="inner">
-            <h3>9999</h3>
+            <h3>{{ $data['items']['movies'] }}</h3>
             <p>Movies</p>
           </div>
           <div class="icon">
@@ -34,8 +44,8 @@
         <!-- small box -->
         <div class="small-box bg-green">
           <div class="inner">
-            <h3>9999</h3>
-            <p>Bounce Rate</p>
+            <h3>{{ $data['items']['others'] }}</h3>
+            <p>Others</p>
           </div>
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
@@ -49,7 +59,7 @@
         <!-- small box -->
         <div class="small-box bg-yellow">
           <div class="inner">
-            <h3>9999</h3>
+            <h3>{{ $data['items']['users'] }}</h3>
             <p>User Registrations</p>
           </div>
           <div class="icon">
@@ -64,7 +74,7 @@
         <!-- small box -->
         <div class="small-box bg-red">
           <div class="inner">
-            <h3>9999</h3>
+            <h3>{{ $data['items']['reports'] }}</h3>
             <p>Reports</p>
           </div>
           <div class="icon">
@@ -95,31 +105,25 @@
               <div class="form-group">
                 <label for="title" class="col-sm-2 control-label">Title</label>
                 <div class="col-sm-10">
-                  <p class="form-control-static">{{ $system_info['title'] }}</p>
+                  <p class="form-control-static">{{ $systemInfo['title'] }}</p>
                 </div>
               </div>
               <div class="form-group">
                 <label for="description" class="col-sm-2 control-label">Description</label>
                 <div class="col-sm-10">
-                  <p class="form-control-static">{{ $system_info['description'] }}</p>
+                  <p class="form-control-static">{{ $systemInfo['description'] }}</p>
                 </div>
               </div>
               <div class="form-group">
                 <label for="keywords" class="col-sm-2 control-label">Keywords</label>
                 <div class="col-sm-10">
-                  <p class="form-control-static">{{ $system_info['keywords'] }}</p>
+                  <p class="form-control-static">{{ $systemInfo['keywords'] }}</p>
                 </div>
               </div>
               <div class="form-group">
                 <label for="copyright" class="col-sm-2 control-label">Copyright</label>
                 <div class="col-sm-10">
-                  <p class="form-control-static">{{ $system_info['copyright'] }}</p>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="reservation" class="col-sm-2 control-label">Remaining</label>
-                <div class="col-sm-10">
-                  <p id="remainingDays" class="form-control-static"></p>
+                  <p class="form-control-static">{{ $systemInfo['copyright'] }}</p>
                 </div>
               </div>
             </div>
@@ -130,27 +134,27 @@
               <div class="form-group">
                 <label for="title" class="col-sm-2 control-label">Title</label>
                 <div class="col-sm-10">
-                  <input id="title" name="title" type="text" class="form-control" placeholder="Title" value="{{ $system_info['title'] }}">
-                  <input type="hidden" name="id" value="{{ $system_info['id'] }}" />
+                  <input id="title" name="title" type="text" class="form-control" placeholder="Title" value="{{ $systemInfo['title'] }}">
+                  <input type="hidden" name="id" value="{{ $systemInfo['id'] }}" />
                   <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 </div>
               </div>
               <div class="form-group">
                 <label for="description" class="col-sm-2 control-label">Description</label>
                 <div class="col-sm-10">
-                  <textarea id="description" name="description" class="form-control" rows="3" placeholder="Description">{{ $system_info['description'] }}</textarea>
+                  <textarea id="description" name="description" class="form-control" rows="3" placeholder="Description">{{ $systemInfo['description'] }}</textarea>
                 </div>
               </div>
               <div class="form-group">
                 <label for="keywords" class="col-sm-2 control-label">Keywords</label>
                 <div class="col-sm-10">
-                  <textarea id="keywords" name="keywords" class="form-control" rows="3" placeholder="Keywords">{{ $system_info['keywords'] }}</textarea>
+                  <textarea id="keywords" name="keywords" class="form-control" rows="3" placeholder="Keywords">{{ $systemInfo['keywords'] }}</textarea>
                 </div>
               </div>
               <div class="form-group">
                 <label for="copyright" class="col-sm-2 control-label">Copyright</label>
                 <div class="col-sm-10">
-                  <input id="copyright" type="text" class="form-control" placeholder="Title" readonly value="{{ $system_info['copyright'] }}">
+                  <input id="copyright" type="text" class="form-control" placeholder="Title" readonly value="{{ $systemInfo['copyright'] }}">
                 </div>
               </div>
               <div class="form-group">
@@ -161,8 +165,8 @@
                       <i class="fa fa-calendar"></i>
                     </div>
                     <input type="text" class="form-control pull-right active" name="daterange" autocomplete="off" disabled>
-                    <input name="started_at" type="hidden" class="form-control" value="{{ $system_info['started_at'] }}">
-                    <input name="end_at" type="hidden" class="form-control" value="{{ $system_info['end_at'] }}">
+                    <input name="started_at" type="hidden" class="form-control" value="{{ $systemInfo['started_at'] }}">
+                    <input name="end_at" type="hidden" class="form-control" value="{{ $systemInfo['end_at'] }}">
                   </div>
                 </div>
               </div>

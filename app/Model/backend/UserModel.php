@@ -11,11 +11,12 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 use App\Flight;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Http\Controllers\Controller;
 
 class UserModel extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
-    use Authenticatable, CanResetPassword;
+    use Authenticatable, CanResetPassword, SoftDeletes;
 
     /**
      * The database table used by the model.
@@ -23,7 +24,8 @@ class UserModel extends Model implements AuthenticatableContract, CanResetPasswo
      * @var string
      */
     protected $table = 'users';
-
+    protected $softDelete = true;
+    protected $dates = ['deleted_at'];
     /**
      * The attributes that are mass assignable.
      *

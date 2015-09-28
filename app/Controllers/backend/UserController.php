@@ -99,6 +99,30 @@ class UserController extends Controller {
     }
     return $result;
   }
+  
+  public function getDeleteWhere() {
+    $ids = Request::input('id');
+    $result = $this->deleteWhere($ids);
+    return $result;
+  }
+  
+  protected function deleteWhere($ids) {
+    $result = [
+        'status' => false,
+        'serviceName' => 'user-delete-where',
+          'result' => [
+              'id' => $ids
+          ]
+    ];
+    foreach ($ids as $id) {
+      $query = UserModel::where('user_id', $id)
+              ->delete();
+    }
+    if ($query) {
+      $result['status'] = true;
+    }
+    return $result;
+  }
 
 
 }

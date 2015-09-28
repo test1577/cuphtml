@@ -14,6 +14,7 @@ use App\Model\backend\AdminModel;
 use App\Controllers\backend\Controller;
 use App\Component\backend\BaseComponent;
 use App\Model\backend\SystemInfoModel;
+use App\Model\backend\UserModel;
 
 class BackendController extends Controller {
 
@@ -30,8 +31,8 @@ class BackendController extends Controller {
     $this->user = Auth::user();
     $this->user['last_created'] = Controller::timeElapsedString($this->user['created_at']);
     $this->user['last_updated'] = Controller::timeElapsedString($this->user['updated_at']);
-    $system_model = new SystemInfoModel;
-    $system_info = $system_model::findorfail(1);
+    $systemModel = new SystemInfoModel;
+    $systemInfo = $systemModel::findorfail(1);
 //    JavaScript::put([
 //        'foo' => 'bar',
 //        'age' => 29
@@ -41,7 +42,15 @@ class BackendController extends Controller {
         'page' => $this->page,
         'title' => $this->page.$this->global['title'],
         'user' => $this->user,
-        'system_info' => $system_info,
+        'systemInfo' => $systemInfo,
+        'data' => [
+            'items' => [
+                'movies' => 9999,
+                'others' => 9999,
+                'users' => UserModel::count(),
+                'reports' => 9999
+            ]
+        ]
     ];
     return view('backend/home', $data);
   }

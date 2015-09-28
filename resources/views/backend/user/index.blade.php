@@ -7,8 +7,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Index Users
-      <small>information users</small>
+       <i class="fa fa-user"></i> Users
     </h1>
     <ol class="breadcrumb">
       <li><a href="{{ URL::route('user/index') }}"><i class="fa fa-user"></i> Users</a></li>
@@ -25,18 +24,16 @@
             <h3 class="box-title">Table Users</h3>
             <div class="box-tools pull-right">
               <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <span class="fa fa-cog"></span>
-                  <span class="sr-only">Toggle Dropdown</span>
-                </button>
+                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                <button class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-wrench"></i></button>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="#"><i class="fa fa-plus"></i> Add</a></li>
-                  <li><a href="#"><i class="fa fa-trash"></i> Delete Select</a></li>
+                  <li><a href="#">Add</a></li>
+                  <li><a href="javascript:void(0);" id="selectDelete" data-cuphtml-action="user-delete-where" >Delete</a></li>
                   <li class="divider"></li>
-                  <li><a href="#"><i class="fa fa-table"></i> Empty Table</a></li>
+                  <li><a href="#">Empty</a></li>
                 </ul>
               </div>
-<!--                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+<!--                
         <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>-->
             </div>
           </div>
@@ -57,7 +54,10 @@
               <tbody>
                 @foreach ($data['rows'] as $row)
                 <tr>
-                  <td><input type="checkbox" value="{{ $row->user_id }}"></td>
+                  <td>
+                    <input data-cuphtml-checkbox type="checkbox" value="{{ $row->user_id }}">
+                    <input name="title" type="hidden" value="{{ $row->user_fullname }}">
+                  </td>
                   <td>{{ $row->user_id }}</td>
                   <td>{{ $row->user_fullname }}</td>
                   <td>{{ $row->user_email }}</td>
@@ -77,8 +77,8 @@
                   <td>{{ $row->created_at }}</td>
                   <td>
                     <div class="box-tools pull-right">
-                      <a class="btn btn-social-icon btn-info" table-cuphtml-action="edit" table-cuphtml-id="{{ $row->user_id }}"><i class="fa fa-edit"></i></a>
-                      <a class="btn btn-social-icon btn-danger" table-cuphtml-action="edit" table-cuphtml-id="{{ $row->user_id }}"><i class="fa fa-trash"></i></a>
+                      <a class="cuphtml-select-edit btn btn-social-icon btn-info" table-cuphtml-action="user-edit-where" table-cuphtml-id="{{ $row->user_id }}"><i class="fa fa-edit"></i></a>
+                      <a class="cuphtml-select-delete btn btn-social-icon btn-danger" table-cuphtml-action="user-delete-where" table-cuphtml-id="{{ $row->user_id }}"><i class="fa fa-trash"></i></a>
                     </div>
                   </td>
                 </tr>
