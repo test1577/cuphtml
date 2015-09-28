@@ -53,6 +53,12 @@ $(function () {
         setDataTable: function () {
           $('#indexTable').DataTable();
         },
+        deleteTableRow: function (params) {
+          for( var key in params) {
+            var tableRow = $('table').find("[table-cuphtml-id='" + params[key] + "']").parents().eq(2);
+            tableRow.html('');
+          }
+        },
         setAlertWhenHasSessionFlash: function () {
           var hasEl = $('[cuphtml-alert]');
           if (hasEl.length > 0) {

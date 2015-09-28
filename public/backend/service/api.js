@@ -24,6 +24,9 @@ $(document).ready(function () {
       },
       status: {
         success: function (res) {
+          if (res.serviceName === 'user-delete-where') {
+            cuphtml.event.deleteTableRow(res.result.id);
+          }
           var setOption = {
             type: 'modal-success',
             message: messageConfig['success']
