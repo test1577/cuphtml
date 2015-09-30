@@ -1,4 +1,3 @@
-
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
@@ -20,8 +19,8 @@
           <span class="info-box-icon  bg-green"><i class="fa fa-leaf"></i></span>
           <div class="info-box-content">
             <span class="info-box-text">Domain : {{ $global['baseUrl'] }}</span>
-            <span class="info-box-text">Remaining Life's  : ( {{ $systemInfo['end_at'] }} )</span>
-            <span id="remainingDays" class="info-box-number"></span>
+            <span class="info-box-text">Remaining Life's  : <span id="remainingDays"></span> ( {{ $systemInfo['end_at'] }} )</span>
+            
             <div class="progress">
                     <div class="progress-bar bg-green" style="width: 70%"></div>
                   </div>

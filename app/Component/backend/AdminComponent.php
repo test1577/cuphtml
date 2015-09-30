@@ -12,7 +12,7 @@ use Carbon\Carbon;
 use App\Component\frontend\BaseComponent;
 use App\Model\frontend\UserModel;
 
-class UserComponent
+class AdminComponent
 {
     static function register($params) {
       $result = [

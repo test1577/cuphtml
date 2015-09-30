@@ -52,11 +52,32 @@ $(function () {
         },
         setDataTable: function () {
           $('#indexTable').DataTable({
-              "order": [[ 1, "desc" ]]
+              "bRetrieve": true,
+              "fnDrawCallback": function() {
+                option.event.setInputSwitch();
+                option.systemCuphtml.setButtonSelectDelete();
+              },
+		         "initComplete": function(settings, json) {
+//                option.event.setInputSwitch();
+//                option.systemCuphtml.setButtonSelectDelete();
+		         },
+            "order": [[1, "desc"]],
+            "ajax": {
+              "url": $('#getDataTable').val()
+            },
+            "columns": [
+                { "data": "html_input" },
+                { "data": "user_id" },
+                { "data": "user_fullname" },
+                { "data": "user_email" },
+                { "data": "user_social" },
+                { "data": "html_status" },
+                { "data": "html_action" }
+            ]
           });
         },
         deleteTableRow: function (params) {
-          for( var key in params) {
+          for (var key in params) {
             var tableRow = $('table').find("[table-cuphtml-id='" + params[key] + "']").parents().eq(2);
             tableRow.html('');
           }
@@ -119,13 +140,22 @@ $(function () {
       },
       windowEvent: {
         click: function () {
+          option.systemCuphtml.setFormValidate();
           option.systemCuphtml.setButtonCuphtml();
           option.systemCuphtml.setButtonSelectDelete();
+          option.systemCuphtml.setButtonEdit();
+          option.systemCuphtml.setButtonSaveClose();
+          option.systemCuphtml.setButtonSave();
         },
         load: function () {
           option.systemCuphtml.setShowCuphtml();
         }
       },
+//      formAjax: {
+//        dashboard: function () {
+//          option.event.setDateRange();
+//        }
+//      },
       page: {
         masterPage: function () {
           option.event.setDataTable();
@@ -135,8 +165,43 @@ $(function () {
         }
       },
       systemCuphtml: {
+        openFormEdit: function (res) {
+          console.log(res);
+        },
+        setFormValidate: function () {
+          option.systemCuphtml.setFormEditValidate();
+        },
+        setFormEditValidate: function () {
+          $('#formEdit').validator();
+        },
+        setFormAddValidate: function () {
+          $('#formAdd').validator();
+        },
         setButtonSelectDelete: function () {
-          
+          option.systemCuphtml.setButtonSingleDelete();
+          option.systemCuphtml.setButtonMultipleDelete();
+        },
+        setButtonSave: function () {
+          $('#formAddSave').click(function () {
+            $typePost = $('form#formAdd').find('input#type_post');
+            $typePost.val('save');
+          });
+          $('#formEditSave').click(function () {
+            $typePost = $('form#formEdit').find('input#type_post');
+            $typePost.val('save');
+          });
+        },
+        setButtonSaveClose: function () {
+          $('#formAddSaveClose').click(function () {
+            $typePost = $('form#formAdd').find('input#type_post');
+            $typePost.val('saveclose');
+          });
+          $('#formEditSaveClose').click(function () {
+            $typePost = $('form#formEdit').find('input#type_post');
+            $typePost.val('saveclose');
+          });
+        },
+        setButtonSingleDelete: function () {
           $('#selectDelete').click(function () {
             var indexs = [];
             var serviceName = $(this).attr('data-cuphtml-action');
@@ -151,7 +216,8 @@ $(function () {
             params["id"] = indexs;
             option.systemCuphtml.setConfirmDelete(serviceName, params);
           });
-          
+        },
+        setButtonMultipleDelete: function () {
           $('.cuphtml-select-delete').click(function () {
             var indexs = [];
             var serviceName = $(this).attr('table-cuphtml-action');
@@ -164,32 +230,52 @@ $(function () {
             params["id"] = indexs;
             option.systemCuphtml.setConfirmDelete(serviceName, params);
           });
-          
         },
         setConfirmDelete: function (serviceName, params) {
           var titleMsg = 'Do you want to delete?';
-            if ( params.id.length == 1 ) {
-              var nameItem = $('table').find("[table-cuphtml-id='"+params.id+"']").parents().eq(2).find('input[name="title"]').val();
-              titleMsg = 'Do you want to delete '+nameItem+'?';
+          var bodyMsg = '';
+          if (params.id.length == 1) {
+            var nameItem = $('table').find("[table-cuphtml-id='" + params.id + "']").parents().eq(2).find('input[name="title"]').val();
+            bodyMsg = 'Do you want to delete id : ' + params.id + ' name : ' + nameItem + '?';
+          } else {
+            var items = [];
+            for (var key in params.id) {
+              var nameItem = $('table').find("[table-cuphtml-id='" + params.id[key] + "']").parents().eq(2).find('input[name="title"]').val();
+              items.push('<li> id : ' + params.id[key] + ' name : ' + nameItem + '</li>');
             }
-            var setOption = {
-              title: titleMsg,
-              message: titleMsg,
-              type: 'modal-warning', // <-- Default value is BootstrapDialog.TYPE_PRIMARY
-              closable: true, // <-- Default value is false
-              draggable: true, // <-- Default value is false
-              btnCancelLabel: 'Cancel', // <-- Default value is 'Cancel',
-              btnOKLabel: 'Delete!', // <-- Default value is 'OK',
-              btnOKClass: 'btn-warning', // <-- If you didn't specify it, dialog type will be used,
-              callback: function (result) {
-                // result will be true if button was click, while it will be false if users close the dialog directly.
-                if (result) {
-                  service.api.deleteWhere(serviceName, params);
-                }
+            bodyMsg = '<p>Do you want to delete? (items '+params.id.length+')</p>'
+              + '<ul id="listDelete">'
+              + items.join('')
+              + '</ul>';
+          }
+          var setOption = {
+            title: titleMsg,
+            message: bodyMsg,
+            type: 'modal-warning', // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+            closable: true, // <-- Default value is false
+            draggable: true, // <-- Default value is false
+            btnCancelLabel: 'Cancel', // <-- Default value is 'Cancel',
+            btnOKLabel: 'Delete!', // <-- Default value is 'OK',
+            btnOKClass: 'btn-warning', // <-- If you didn't specify it, dialog type will be used,
+            callback: function (result) {
+              // result will be true if button was click, while it will be false if users close the dialog directly.
+              if (result) {
+                service.api.deleteWhere(serviceName, params);
               }
             }
-            option.event.setAlertConfirm(setOption);
-          
+          }
+          option.event.setAlertConfirm(setOption);
+
+        },
+        setButtonEdit: function () {
+          $('.cuphtml-select-edit').click(function () {
+            var serviceName = $(this).attr('table-cuphtml-action');
+            var id = $(this).attr('table-cuphtml-id');
+            var params = {
+              id : id
+            };
+            service.api.getWhere(serviceName, params);
+          });
         },
         setButtonCuphtml: function () {
           $('[data-cuphtml-action]').click(function () {

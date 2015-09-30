@@ -12,7 +12,6 @@ use Hash,
 use Illuminate\Support\Facades\Input;
 use App\Model\backend\AdminModel;
 use App\Controllers\backend\Controller;
-use App\Component\backend\BaseComponent;
 use App\Model\backend\SystemInfoModel;
 use App\Model\backend\UserModel;
 
@@ -62,8 +61,8 @@ class BackendController extends Controller {
     }
     $data = array(
         'global' => $this->global,
-        'page' => 'feed',
-        'title' => 'cuphtml',
+        'page' => 'Login',
+        'title' => SystemInfoModel::findorfail(1)['title'],
         'status' => $statusLogin
     );
     return view('backend/login', $data);
@@ -79,9 +78,7 @@ class BackendController extends Controller {
   }
 
   protected function authen() {
-    // Getting all post data
     $data = Input::all();
-    // Applying validation rules.
     $rules = array(
         'email' => 'required|min:4',
         'password' => 'required|min:4',

@@ -79,6 +79,19 @@ $(document).ready(function () {
               option.status.fail(res);
             }
           });
+        },
+        getWhere: function (nameService, params) {
+          $.ajax({
+            method: "POST",
+            url: Global.baseurl + '@min/api-' + nameService,
+            data: params
+          }).done(function (res) {
+            if(res.status){
+              cuphtml.systemCuphtml.openFormEdit(res);
+            }else{
+              option.status.fail(res);
+            }
+          });
         }
       },
       register: function ($params) {

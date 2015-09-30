@@ -55,11 +55,11 @@ class UserComponent
     }
     
     static function addUser($users) {
-      $table = new UserModel;
+      $query = new UserModel;
       foreach ($users as $key => $value) {
-        $table[$key] = $value;
+        $query[$key] = $value;
       }
-      $result = $table->save();
+      $result = $query->save();
       return $result;
     }
     

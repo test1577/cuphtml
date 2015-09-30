@@ -7,8 +7,11 @@
         <!-- plugins -->
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="{{ $global['baseUrl'] }}backend/plugins/datatables/jquery.dataTables.min.css">
         <!-- Bootstrap 3.3.5 -->
         <link rel="stylesheet" href="{{ $global['baseUrl'] }}backend/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ $global['baseUrl'] }}backend/bootstrap/css/awesome-bootstrap-checkbox.css">
         <!-- Bootstrap Switch -->
         <link rel="stylesheet" href="{{ $global['baseUrl'] }}backend/bootstrap/bootstrap-switch/bootstrap-switch.min.css">
         <!-- Bootstrap Dialog -->

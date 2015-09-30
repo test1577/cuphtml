@@ -22,11 +22,6 @@ Route::get('/menu', function () {
 Route::any('/api-register', ['as' => 'profile', 'uses' => 'api\frontend\RegisterController@index']);
 //Route::match(['get', 'post'],'/api-register', ['as' => 'profile', 'uses' => 'api\frontend\RegisterController@index']);
 
-// Authentication routes...
-//Route::get('auth/login', 'Auth\AuthController@getLogin');
-//Route::get('auth/login', 'Auth\AuthController@getLogin');
-//Route::post('auth/login', 'Auth\AuthController@postLogin');
-//Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 //backend
 Route::get('/backend', ['as' => 'profile', 'uses' => 'backend\AuthController@index']);

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{{ $global['title'] }}</title>
+        <title>{{ $title }}</title>
         @include('backend/base/meta')
         <!-- iCheck -->
-        <link rel="stylesheet" href="{{ $global['baseUrl'] }}backend/plugins/iCheck/square/blue.css">
+        <!--<link rel="stylesheet" href="{{ $global['baseUrl'] }}backend/plugins/iCheck/square/blue.css">-->
     </head>
   
   <body class="hold-transition login-page">
     <div class="login-box">
       <div class="login-logo">
-        <a href="#"><b>CUP</b>HTML</a>
+        <a href="{{ URL::route('dashboard') }}"><b>{{ $title }}</b></a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         @if(Session::has('systemError'))
@@ -28,16 +28,15 @@
           </div>
           <div class="form-group has-feedback">
             <input name="password" type="password" class="form-control" placeholder="Password" required>
-            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             <p class="text-red">{{$errors->first('password')}}</p>
           </div>
           <div class="row">
             <div class="col-xs-8">
-              <div class="checkbox icheck">
-                <label>
-                  <input name="remember" type="checkbox"> Remember Me 
-                </label>
+              <div class="checkbox checkbox-info">
+                  <input id="remember" name="remember" type="checkbox"> 
+                  <label for="remember">Remember Me</label> 
               </div>
             </div><!-- /.col -->
             <div class="col-xs-4">
@@ -63,16 +62,16 @@
     <!-- Bootstrap 3.3.5 -->
     <script src="{{ $global['baseUrl'] }}backend/bootstrap/js/bootstrap.min.js"></script>
     <!-- iCheck -->
-    <script src="{{ $global['baseUrl'] }}backend/plugins/iCheck/icheck.min.js"></script>
+    <!--<script src="{{ $global['baseUrl'] }}backend/plugins/iCheck/icheck.min.js"></script>-->
     <!-- Service App -->
     <script src="{{ $global['baseUrl'] }}backend/service/api.js"></script>
     <script>
       $(function () {
-        $('input').iCheck({
-          checkboxClass: 'icheckbox_square-blue',
-          radioClass: 'iradio_square-blue',
-          increaseArea: '20%' // optional
-        });
+//        $('input').iCheck({
+//          checkboxClass: 'icheckbox_square-blue',
+//          radioClass: 'iradio_square-blue',
+//          increaseArea: '20%' // optional
+//        });
       });
     </script>
   </body>
