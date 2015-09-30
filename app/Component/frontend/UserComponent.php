@@ -40,7 +40,12 @@ class UserComponent
     
     static function packDataUser($params, $token) {
         if ( empty($params['social']) ) $params['access_token'] = '';
-        $password = BaseComponent::genPassword($params['password'], $params['social']);
+        if ( !isset($params['password']) ) {
+          $password = '';
+        } else {
+          $password = $params['password'];
+        }
+        $password = BaseComponent::genPassword($password, $params['social']);
         $result = [
             'user_email' => $params['email'],
             'user_password' => $password,
@@ -74,13 +79,13 @@ class UserComponent
     static function login($email, $password) {
       $result = [
         'status' => false,
-        'massage' => 'can\'t login'
+        'massage' => 'can\'t logins'
       ];
       $query = UserModel::where('user_email', $email)
-              ->where('user_password', $password)
+              ->where('user_password', BaseComponent::genPassword($password))
               ->where('user_status', 1)
               ->get();
-      if ( count($query) > 0 ) {
+      if ( $query ) {
         $result = [
             'status' => true,
             'result' => [
@@ -105,7 +110,7 @@ class UserComponent
 //              ->where('user_access_token', $accessToken)
               ->where('user_social', $social)
               ->get();
-      if ( count($query) > 0 ) {
+      if ( $query ) {
         $result = [
             'status' => true,
             'result' => [

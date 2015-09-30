@@ -12,7 +12,7 @@ class BaseComponent {
     return $result;
   }
 
-  static function genPassword($password, $social='') {
+  static function genPassword($password='', $social='') {
     $result = '';
     if ( empty($social) ) {
       $result = SHA1(MD5($password));
