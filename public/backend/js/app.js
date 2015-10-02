@@ -51,6 +51,9 @@ $(function () {
           $el.parent().find("[name='my-checkbox']").bootstrapSwitch('state', !value, true);
         },
         setDataTable: function () {
+          option.event.setDataTableUser();
+        },
+        setDataTableUser: function () {
           $('#indexTable').DataTable({
               "bRetrieve": true,
               "fnDrawCallback": function() {
@@ -66,14 +69,48 @@ $(function () {
               "url": $('#getDataTable').val()
             },
             "columns": [
-                { "data": "html_input" },
-                { "data": "user_id" },
-                { "data": "user_fullname" },
-                { "data": "user_email" },
-                { "data": "user_social" },
-                { "data": "html_status" },
-                { "data": "html_action" }
-            ]
+              {"data": null},
+              {"data": "user_id"},
+              {"data": "user_fullname"},
+              {"data": "user_email"},
+              {"data": "user_social"},
+              {"data": null},
+              {"data": null}
+            ],
+            "columnDefs": [{
+                "targets": 0, //index
+                "data": null,
+                "render": function (data, type, full, meta) {
+                  var $htmlInput = '<div class="checkbox checkbox-info">'
+                    + '<input id="table-check-' + data.user_id + '" data-cuphtml-checkbox type="checkbox" value="' + data.user_id + '">'
+                    + '<label for="table-check-' + data.user_id + '"></label>'
+                    + '<input name="title" type="hidden" value="' + data.user_fullname + '">'
+                    + '</div>';
+                  return $htmlInput;
+                }
+              },
+              {
+                "targets": -2, // Active / Disable
+                "data": null,
+                "render": function (data, type, full, meta) {
+                  var $nameStatus = data.user_status === 1 ? 'active' : 'disable';
+                  var $checked = data.user_status === 1 ? 'checked' : '';
+                  var $htmlStatus = '<span class="invisibility-text">' + $nameStatus + '</span>'
+                    + '<input type="checkbox" name="my-checkbox" switch-cuphtml-param-id="' + data.user_id + '" switch-cuphtml-param-name="user_status" switch-cuphtml-action="user-status" ' + $checked + '>';
+                  return $htmlStatus;
+                }
+              },
+              {
+                "targets": -1, // Actions
+                "data": null,
+                "render": function (data, type, full, meta) {
+                  var $htmlAction = '<div class="box-tools pull-right">'
+                    + '<a href="' + Global['baseurl'] + '@min/user/edit/' + data.user_id + '" class="btn btn-social-icon btn-info"><i class="fa fa-edit"></i></a>'
+                    + '<a class="cuphtml-select-delete btn btn-social-icon btn-danger" table-cuphtml-action="user-delete-where" table-cuphtml-id="' + data.user_id + '"><i class="fa fa-trash"></i></a>'
+                    + '</div>';
+                  return $htmlAction;
+                }
+              }]
           });
         },
         deleteTableRow: function (params) {
@@ -112,7 +149,7 @@ $(function () {
         },
         setDateRange: function () {
           // Dashboard Page
-          //Date range picker with time picker
+          // Date range picker with time picker
           var valStartDate = $('input[name="started_at"]').val();
           var valEndDate = $('input[name="end_at"]').val();
           var nowYear = moment().format("YYYY");
@@ -202,7 +239,8 @@ $(function () {
           });
         },
         setButtonSingleDelete: function () {
-          $('#selectDelete').click(function () {
+          $('#selectDelete').off('click');
+          $('#selectDelete').on('click', function () {
             var indexs = [];
             var serviceName = $(this).attr('data-cuphtml-action');
             var $items = $('[data-cuphtml-checkbox]:checked');
@@ -218,7 +256,8 @@ $(function () {
           });
         },
         setButtonMultipleDelete: function () {
-          $('.cuphtml-select-delete').click(function () {
+          $('.cuphtml-select-delete').off('click');
+          $('.cuphtml-select-delete').on('click', function () {
             var indexs = [];
             var serviceName = $(this).attr('table-cuphtml-action');
             var id = $(this).attr('table-cuphtml-id');

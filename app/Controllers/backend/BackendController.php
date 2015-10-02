@@ -17,25 +17,15 @@ use App\Model\backend\UserModel;
 
 class BackendController extends Controller {
 
-  protected $global;
-  protected $user;
   protected $page;
   public function __construct() {
-    $this->global = Controller::GLOBALDATA;
-    $this->global['baseUrl'] = URL::to('/').'/';
+    parent::__construct();
     $this->page = 'Dashboard';
   }
 
   protected function index() {
-    $this->user = Auth::user();
-    $this->user['last_created'] = Controller::timeElapsedString($this->user['created_at']);
-    $this->user['last_updated'] = Controller::timeElapsedString($this->user['updated_at']);
     $systemModel = new SystemInfoModel;
     $systemInfo = $systemModel::findorfail(1);
-//    JavaScript::put([
-//        'foo' => 'bar',
-//        'age' => 29
-//    ]);
     $data = [
         'global' => $this->global,
         'page' => $this->page,

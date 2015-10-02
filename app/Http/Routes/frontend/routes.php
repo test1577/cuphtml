@@ -11,6 +11,7 @@
 |
 */
 //frontend
+Route::get('/test', ['as' => 'home', 'uses' => 'frontend\HomeController@test']);
 Route::get('/', ['as' => 'home', 'uses' => 'frontend\HomeController@index']);
 Route::get('/login', ['as' => 'login', 'uses' => 'frontend\HomeController@authen']);
 Route::get('/register', ['as' => 'login', 'uses' => 'frontend\HomeController@register']);

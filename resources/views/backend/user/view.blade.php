@@ -14,8 +14,6 @@
           <li><a href="#">Empty</a></li>
         </ul>
       </div>
-      <!--                
-              <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>-->
     </div>
   </div>
   <div class="box-body">

@@ -15,16 +15,10 @@ use App\Component\backend\UserComponent;
 
 class UserController extends Controller {
 
-  protected $global;
-  protected $user;
   protected $page;
 
   public function __construct() {
-    $this->global = Controller::GLOBALDATA;
-    $this->global['baseUrl'] = URL::to('/') . '/';
-    $this->user = Auth::user();
-    $this->user['last_created'] = Controller::timeElapsedString($this->user['created_at']);
-    $this->user['last_updated'] = Controller::timeElapsedString($this->user['updated_at']);
+    parent::__construct();
     $this->page = 'User';
   }
 

@@ -32,6 +32,8 @@
       <div class="control-sidebar-bg"></div>
     </div><!-- ./wrapper -->
 
+    
     @include('backend/base/js')
+    @include('main/push-js')
   </body>
 </html>

@@ -48,5 +48,6 @@
                 <div class="quote">{{ Inspiring::quote() }}</div>
             </div>
         </div>
+    @include('push-js')
     </body>
 </html>

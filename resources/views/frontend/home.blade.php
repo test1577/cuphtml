@@ -66,5 +66,6 @@
       @endif
     
     
+    @include('main/push-js')
     </body>
 </html>
