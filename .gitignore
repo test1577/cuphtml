@@ -10,3 +10,4 @@ resources/sources/
 sarayoot*
 database.php
 config/*
+/config/*
