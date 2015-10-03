@@ -100,6 +100,8 @@ class BackendController extends Controller {
   }
 
   protected function logout() {
+    unset($this->user['last_created']);
+    unset($this->user['last_updated']);
     Auth::logout();
     return Redirect::to('auth/login');
   }
