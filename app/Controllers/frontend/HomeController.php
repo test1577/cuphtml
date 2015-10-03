@@ -2,16 +2,16 @@
 
 namespace App\Controllers\frontend;
 use App\Controllers\frontend\Controller;
-use JavaScript;
+//use JavaScript;
 
 class HomeController extends Controller
 {
     public function __construct()
     {
-      JavaScript::put([
-          'foo' => 'bar',
-          'age' => 29
-      ]);
+//      JavaScript::put([
+//          'foo' => 'bar',
+//          'age' => 29
+//      ]);
       
     }
     protected function test()

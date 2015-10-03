@@ -8,8 +8,8 @@ use Hash,
     Session,
     Redirect,
     DateTime,
-    Validator,
-    JavaScript;
+    Validator;
+//    JavaScript;
 use App\Model\backend\SystemInfoModel;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -49,10 +49,10 @@ abstract class Controller extends BaseController {
   }
   
   public function initJS() {
-    JavaScript::put([
-        'foo' => 'bar',
-        'age' => 29
-    ]);
+//    JavaScript::put([
+//        'foo' => 'bar',
+//        'age' => 29
+//    ]);
   }
   public function timeElapsedString($datetime, $full = false) {
     $now = new DateTime;

@@ -7,8 +7,8 @@ use Hash,
     Auth,
     Session,
     Redirect,
-    Validator,
-    JavaScript;
+    Validator;
+//    JavaScript;
 use Illuminate\Support\Facades\Input;
 use App\Model\backend\AdminModel;
 use App\Controllers\backend\Controller;
