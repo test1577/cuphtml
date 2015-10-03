@@ -8,4 +8,4 @@ Homestead.yaml
 .gitattributes
 resources/sources/
 sarayoot*
-config/database.php
+database.php
