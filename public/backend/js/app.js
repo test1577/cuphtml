@@ -51,7 +51,12 @@ $(function () {
           $el.parent().find("[name='my-checkbox']").bootstrapSwitch('state', !value, true);
         },
         setDataTable: function () {
-          option.event.setDataTableUser();
+          var whereTable = $('[cuphtml-page]').prop('title');
+          if (whereTable === 'user') {
+            option.event.setDataTableUser();
+          } else if (whereTable === 'admin') {
+            option.event.setDataTableAdmin();
+          }
         },
         setDataTableUser: function () {
           $('#indexTable').DataTable({
@@ -108,6 +113,71 @@ $(function () {
                     + '<a href="' + Global['baseurl'] + '@min/user/edit/' + data.user_id + '" class="btn btn-social-icon btn-info"><i class="fa fa-edit"></i></a>'
                     + '<a class="cuphtml-select-delete btn btn-social-icon btn-danger" table-cuphtml-action="user-delete-where" table-cuphtml-id="' + data.user_id + '"><i class="fa fa-trash"></i></a>'
                     + '</div>';
+                  return $htmlAction;
+                }
+              }]
+          });
+        },
+        setDataTableAdmin: function () {
+          $('#indexTable').DataTable({
+              "bRetrieve": true,
+              "fnDrawCallback": function() {
+                option.event.setInputSwitch();
+                option.systemCuphtml.setButtonSelectDelete();
+              },
+		         "initComplete": function(settings, json) {
+//                option.event.setInputSwitch();
+//                option.systemCuphtml.setButtonSelectDelete();
+		         },
+            "order": [[1, "desc"]],
+            "ajax": {
+              "url": $('#getDataTable').val()
+            },
+            "columns": [
+              {"data": null},
+              {"data": "id"},
+              {"data": "name"},
+              {"data": "email"},
+              {"data": null},
+              {"data": null}
+            ],
+            "columnDefs": [{
+                "targets": 0, //index
+                "data": null,
+                "render": function (data, type, full, meta) {
+                  var $htmlInput = '<div class="checkbox checkbox-info">'
+                    + '<input id="table-check-' + data.id + '" data-cuphtml-checkbox type="checkbox" value="' + data.id + '">'
+                    + '<label for="table-check-' + data.id + '"></label>'
+                    + '<input name="title" type="hidden" value="' + data.name + '">'
+                    + '</div>';
+                  return $htmlInput;
+                }
+              },
+              {
+                "targets": -2, // Active / Disable
+                "data": null,
+                "render": function (data, type, full, meta) {
+                  var $nameStatus = data.status === 1 ? 'active' : 'disable';
+                  var $checked = data.status === 1 ? 'checked' : '';
+                  var $htmlStatus = '<span class="invisibility-text">' + $nameStatus + '</span>'
+                    + '<input type="checkbox" name="my-checkbox" switch-cuphtml-param-id="' + data.id + '" switch-cuphtml-param-name="status" switch-cuphtml-action="admin-status" ' + $checked + '>';
+                 if (data.email === 'admin') {
+                   $htmlStatus = '';
+                 }
+                  return $htmlStatus;
+                }
+              },
+              {
+                "targets": -1, // Actions
+                "data": null,
+                "render": function (data, type, full, meta) {
+                  var $htmlAction = '<div class="box-tools pull-right">'
+                    + '<a href="' + Global['baseurl'] + '@min/admin/edit/' + data.id + '" class="btn btn-social-icon btn-info"><i class="fa fa-edit"></i></a>'
+                    + '<a class="cuphtml-select-delete btn btn-social-icon btn-danger" table-cuphtml-action="admin-delete-where" table-cuphtml-id="' + data.id + '"><i class="fa fa-trash"></i></a>'
+                    + '</div>';
+                 if (data.email === 'admin') {
+                   $htmlAction = '';
+                 }
                   return $htmlAction;
                 }
               }]

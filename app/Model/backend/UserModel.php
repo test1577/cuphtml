@@ -40,21 +40,4 @@ class UserModel extends Model implements AuthenticatableContract, CanResetPasswo
      */
     protected $hidden = ['password', 'remember_token'];
     
-    static function addUser($userData) {
-      print_r($userData);
-      exit;
-    }
-    /**
-     * Scope a query to only include active users.
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    static function listUser() {
-      return self::all();
-    }
-    
-    static function findEmail($email) {
-      return self::where('user_email', $email)
-               ->get();
-    }
 }

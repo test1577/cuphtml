@@ -39,6 +39,22 @@ Route::group(['prefix' => '@min', 'middleware' => 'auth'], function () {
     Route::post('api-user-add-form-where', ['as' => 'user-add', 'uses' => 'backend\UserController@getAddFormWhere']);
     Route::post('api-user-update-form-where', ['as' => 'user-update', 'uses' => 'backend\UserController@getUpdateFormWhere']);
     
+    //admin
+    Route::get('/admin/add', ['as' => 'admin/add', 'uses' => 'backend\AdminController@add']);
+    Route::get('/admin/edit/{id}', ['as' => 'admin/edit', 'uses' => 'backend\AdminController@edit']);
+    Route::get('/admin/index', ['as' => 'admin/index', 'uses' => 'backend\AdminController@index']);
+    //admin api
+    Route::any('api-admin-get', ['as' => 'api-admin-get', 'uses' => 'backend\AdminController@get']);
+    Route::post('api-admin-add', ['as' => 'api-admin-add', 'uses' => 'backend\AdminController@getAdd']);
+    Route::post('api-admin-edit', ['as' => 'api-admin-edit', 'uses' => 'backend\AdminController@getEdit']);
+    Route::post('api-admin-status', ['as' => 'api-admin-status', 'uses' => 'backend\AdminController@getStatus']);
+    Route::post('api-admin-get-where', ['as' => 'api-admin-get-where', 'uses' => 'backend\AdminController@getWhere']);
+    Route::post('api-admin-delete-where', ['as' => 'api-admin-delete-where', 'uses' => 'backend\AdminController@getDeleteWhere']);
+    Route::post('api-admin-update-where', ['as' => 'api-admin-update-where', 'uses' => 'backend\AdminController@getUpdateWhere']);
+    //admin submit
+    Route::post('api-admin-add-form-where', ['as' => 'admin-add', 'uses' => 'backend\AdminController@getAddFormWhere']);
+    Route::post('api-admin-update-form-where', ['as' => 'admin-update', 'uses' => 'backend\AdminController@getUpdateFormWhere']);
+    
 });
 
 //Helper

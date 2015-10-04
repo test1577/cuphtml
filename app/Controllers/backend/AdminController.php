@@ -3,6 +3,7 @@
 namespace App\Controllers\backend;
 
 use URL,
+    Hash,
     Auth,
     Input,
     Session,
@@ -10,16 +11,16 @@ use URL,
     Redirect,
     Validator;
 use App\Controllers\backend\Controller;
-use App\Model\backend\UserModel;
-use App\Component\backend\UserComponent;
+use App\Model\backend\AdminModel;
+use App\Component\backend\AdminComponent;
 
-class UserController extends Controller {
+class AdminController extends Controller {
 
   protected $page;
 
   public function __construct() {
     parent::__construct();
-    $this->page = 'User';
+    $this->page = 'Admin';
   }
 
   protected function index() {
@@ -48,18 +49,17 @@ class UserController extends Controller {
     ];
     if ($subPage === 'view') {
       $selectField = [
-          'user_id', 
-          'user_email', 
-          'user_fullname', 
-          'user_social',
-          'user_status'
+          'id',
+          'email',
+          'name',
+          'status'
       ];
-      $row = UserModel::select($selectField)
+      $row = AdminModel::select($selectField)
               ->get();
       $result['data']['rows'] = $row;
     } else if ($subPage === 'edit') {
-      $query = UserModel::where('user_id', $id)
-              ->orderBy('user_id', 'desc')
+      $query = AdminModel::where('id', $id)
+              ->orderBy('id', 'desc')
               ->first();
       $result['data']['row'] = $query;
     } else if ($subPage === 'add') {
@@ -83,24 +83,24 @@ class UserController extends Controller {
   }
 
   public function get() {
-    $result['data'] = UserModel::all();
+    $result['data'] = AdminModel::all();
     return $result;
   }
 
   public function getStatus() {
     $id = Request::input('id');
-    $status = Request::input('user_status');
+    $status = Request::input('status');
     $result = $this->updateStatus($id, $status);
     return $result;
   }
 
   protected function updateStatus($id, $status) {
-    $serviceName = 'user-status';
+    $serviceName = 'admin-status';
     $result = $this->setMsgResponseRequest($id, $serviceName, $status);
     $set = [
-        'user_status' => $status
+        'status' => $status
     ];
-    $query = UserModel::where('user_id', $id)
+    $query = AdminModel::where('id', $id)
             ->update($set);
     if ($query) {
       $result['status'] = true;
@@ -117,7 +117,7 @@ class UserController extends Controller {
   protected function deleteWhere($ids) {
     $serviceName = 'delete-where';
     $result = $this->setMsgResponseRequest($ids, $serviceName);
-    $query = UserModel::whereIn('user_id', $ids)
+    $query = AdminModel::whereIn('id', $ids)
             ->delete();
     if ($query) {
       $result['status'] = true;
@@ -129,8 +129,8 @@ class UserController extends Controller {
     $serviceName = 'get-where';
     $id = Request::input('id');
     $result = $this->setMsgResponseRequest($id, $serviceName);
-    $query = UserModel::where('user_id', $id)
-            ->orderBy('user_id', 'desc')
+    $query = AdminModel::where('id', $id)
+            ->orderBy('id', 'desc')
             ->first();
     if ($query) {
       $result['status'] = true;
@@ -141,14 +141,12 @@ class UserController extends Controller {
 
   public function getUpdateWhere() {
     $serviceName = 'update-where';
-    $id = Request::input('user_id');
+    $id = Request::input('id');
     $result = $this->setMsgResponseRequest($id, $serviceName);
     $set = [
-        'user_tel' => Request::input('user_tel'),
-        'user_address' => Request::input('user_address'),
-        'user_fullname' => Request::input('user_fullname')
+        'name' => Request::input('name')
     ];
-    $query = UserModel::where('user_id', $id)
+    $query = AdminModel::where('id', $id)
             ->update($set);
     $this->setStatusSessionFlashWhenQuery($query);
     if ($query) {
@@ -161,38 +159,40 @@ class UserController extends Controller {
     $inputs = Request::all();
     unset($inputs['type_post']);
     unset($inputs['_token']);
-    $findEmail = UserModel::where('user_email', $inputs['user_email'])->first();
-    if ( !empty($findEmail) ) {
+    $findEmail = AdminModel::where('email', $inputs['email'])->first();
+    if (!empty($findEmail)) {
       Session::flash('systemError', $this->global['msgStatus']['error']);
-      return Redirect::route('user/add');
+      return Redirect::route('admin/add');
     }
-    $query = new UserModel;
+    $query = new AdminModel;
     foreach ($inputs as $key => $value) {
-      $query[$key] = $value;
+      if ($key === 'password') {
+        $query[$key] = Hash::make($value);
+      } else {
+        $query[$key] = $value;
+      }
     }
     $query->save();
     $this->setStatusSessionFlashWhenQuery($query);
     if (Request::input('type_post') === "saveclose") {
-      return Redirect::route('user/index');
+      return Redirect::route('admin/index');
     } else {
-      return Redirect::route('user/add');
+      return Redirect::route('admin/add');
     }
   }
 
   public function getUpdateFormWhere() {
-    $id = Request::input('user_id');
+    $id = Request::input('id');
     $set = [
-        'user_tel' => Request::input('user_tel'),
-        'user_address' => Request::input('user_address'),
-        'user_fullname' => Request::input('user_fullname')
+        'name' => Request::input('name')
     ];
-    $query = UserModel::where('user_id', $id)
+    $query = AdminModel::where('id', $id)
             ->update($set);
     $this->setStatusSessionFlashWhenQuery($query);
     if (Request::input('type_post') === "saveclose") {
-      return Redirect::route('user/index');
+      return Redirect::route('admin/index');
     } else {
-      return Redirect::route('user/edit', $id);
+      return Redirect::route('admin/edit', $id);
     }
   }
 

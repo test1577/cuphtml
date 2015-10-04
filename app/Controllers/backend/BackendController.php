@@ -30,7 +30,7 @@ class BackendController extends Controller {
         'global' => $this->global,
         'page' => $this->page,
         'title' => $this->page.$this->global['title'],
-        'user' => $this->user,
+        'admin' => $this->admin,
         'systemInfo' => $systemInfo,
         'data' => [
             'items' => [
@@ -79,7 +79,7 @@ class BackendController extends Controller {
       Session::flash('error', 'Something went wrong');
       return Redirect::to('auth/login')->withInput(Input::except('password'))->withErrors($validator);
     } else {
-      $userdata = [
+      $admindata = [
           'email' => Input::get('email'),
           'password' => Input::get('password')
       ];
@@ -87,8 +87,8 @@ class BackendController extends Controller {
 //        $userdata['remember'] = true;
 //      }
       // doing login.
-      if (Auth::validate($userdata)) {
-        if (Auth::attempt($userdata)) {
+      if (Auth::validate($admindata)) {
+        if (Auth::attempt($admindata)) {
           return Redirect::intended('/@min');
         }
       } else {
@@ -100,8 +100,8 @@ class BackendController extends Controller {
   }
 
   protected function logout() {
-    unset($this->user['last_created']);
-    unset($this->user['last_updated']);
+    unset($this->admin['last_created']);
+    unset($this->admin['last_updated']);
     Auth::logout();
     return Redirect::to('auth/login');
   }

@@ -3,14 +3,14 @@
     text-align: right;
   }
 </style>
-<div class="content-wrapper" cuphtml-page title="user">
+<div class="content-wrapper" cuphtml-page title="admin">
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      <i class="fa fa-user"></i> Users
+      <i class="fa fa-user-md"></i> Admins
     </h1>
     <ol class="breadcrumb">
-      <li><a href="{{ URL::route('user/index') }}"><i class="fa fa-user"></i> Users</a></li>
+      <li><a href="{{ URL::route('admin/index') }}"><i class="fa fa-user-md"></i> Admins</a></li>
         @if ($subPage === "view")
           <li class="active"> Index</li>
         @elseif ($subPage === "add")
@@ -25,11 +25,11 @@
     <div class="row">
       <div class="col-xs-12">
         @if ($subPage === "view")
-          @include('backend/user/view')
+          @include('backend/admin/view')
         @elseif ($subPage === "add")
-          @include('backend/user/add')
+          @include('backend/admin/add')
         @elseif ($subPage === "edit")
-          @include('backend/user/edit')
+          @include('backend/admin/edit')
         @endif
       </div><!-- /.col -->
     </div><!-- /.row -->

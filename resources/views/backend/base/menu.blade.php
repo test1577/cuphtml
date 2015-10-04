@@ -8,7 +8,7 @@
               <img src="{{ $global['baseUrl'] }}backend/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>{{ $user['name'] }}</p>
+              <p>{{ $admin['name'] }}</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
@@ -33,6 +33,11 @@
             <li class="treeview  @if ($page === 'User') active @endif">
               <a href="{{ URL::route('user/index') }}">
                 <i class="fa fa-user"></i> <span>Users</span>
+              </a>
+            </li>
+            <li class="treeview  @if ($page === 'Admin') active @endif">
+              <a href="{{ URL::route('admin/index') }}">
+                <i class="fa fa-user-md"></i> <span>Admins</span>
               </a>
             </li>
             <li class="treeview">

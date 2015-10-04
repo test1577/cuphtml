@@ -102,15 +102,15 @@
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="{{ $global['baseUrl'] }}backend/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                  <span class="hidden-xs">{{ $user['name'] }}</span>
+                  <span class="hidden-xs">{{ $admin['name'] }}</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
                     <img src="{{ $global['baseUrl'] }}backend/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                     <p>
-                      {{ $user['name'] }} - Admin
-                      <small>Last Login : {{ $user['last_updated'] }}</small>
+                      {{ $admin['name'] }} - Admin
+                      <small>Last Login : {{ $admin['last_updated'] }}</small>
                     </p>
                   </li>
                   <!-- Menu Body -->

@@ -21,7 +21,7 @@ abstract class Controller extends BaseController {
       ValidatesRequests;
   
   protected $global;
-  protected $user;
+  protected $admin;
   
   const GLOBALDATA = [
         'title' => ' - AdminSystem Control',
@@ -40,10 +40,9 @@ abstract class Controller extends BaseController {
     $this->global = Controller::GLOBALDATA;
     $this->global['baseUrl'] = URL::to('/') . '/';
     if (Auth::check()) {
-      $this->user = Auth::user();
-      $this->user['last_created'] = Controller::timeElapsedString($this->user['created_at']);
-      $this->user['last_updated'] = Controller::timeElapsedString($this->user['updated_at']);
-//    print_r(json_encode($this->user));exit;
+      $this->admin = Auth::user();
+      $this->admin['last_created'] = self::timeElapsedString($this->admin['created_at']);
+      $this->admin['last_updated'] = self::timeElapsedString($this->admin['updated_at']);
     }
     $this->initJS();
   }

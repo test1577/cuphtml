@@ -22,6 +22,8 @@
           @include('backend/dashboard')
         @elseif ($page === 'User')
           @include('backend/user/index')
+        @elseif ($page === 'Admin')
+          @include('backend/admin/index')
         @endif
       <!-- /.content-wrapper -->
         @include('backend/base/footer')
