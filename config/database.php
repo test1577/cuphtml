@@ -55,8 +55,8 @@ return [
         'mysql' => [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST', 'localhost'),
-            'database'  => env('DB_DATABASE', 'cuphtmlc_db'),
-            'username'  => env('DB_USERNAME', 'cuphtmlc_db'),
+            'database'  => env('DB_DATABASE', 'exel_db'),
+            'username'  => env('DB_USERNAME', 'exel_db'),
             'password'  => env('DB_PASSWORD', '1q2w3e4r'),
             'charset'   => 'utf8',
             'collation' => 'utf8_general_ci',

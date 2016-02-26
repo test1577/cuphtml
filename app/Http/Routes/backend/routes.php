@@ -38,7 +38,6 @@ Route::group(['prefix' => '@min', 'middleware' => 'auth'], function () {
     //user submit
     Route::post('api-user-add-form-where', ['as' => 'user-add', 'uses' => 'backend\UserController@getAddFormWhere']);
     Route::post('api-user-update-form-where', ['as' => 'user-update', 'uses' => 'backend\UserController@getUpdateFormWhere']);
-    
     //admin
     Route::get('/admin/add', ['as' => 'admin/add', 'uses' => 'backend\AdminController@add']);
     Route::get('/admin/edit/{id}', ['as' => 'admin/edit', 'uses' => 'backend\AdminController@edit']);
@@ -54,7 +53,9 @@ Route::group(['prefix' => '@min', 'middleware' => 'auth'], function () {
     //admin submit
     Route::post('api-admin-add-form-where', ['as' => 'admin-add', 'uses' => 'backend\AdminController@getAddFormWhere']);
     Route::post('api-admin-update-form-where', ['as' => 'admin-update', 'uses' => 'backend\AdminController@getUpdateFormWhere']);
-    
+    //exel
+    Route::get('/sellout', ['as' => 'sellout/index', 'uses' => 'backend\SelloutController@index']);
+
 });
 
 //Helper

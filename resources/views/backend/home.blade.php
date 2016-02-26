@@ -4,14 +4,14 @@
         <title>{{ $title }}</title>
         @include('backend/base/meta')
     </head>
-    
+
   <body class="hold-transition skin-blue sidebar-mini">
       @if(Session::has('systemSuccess'))
       <div cuphtml-alert cuphtml-alert-status="success"></div>
       @elseif(Session::has('systemError'))
       <div cuphtml-alert cuphtml-alert-status="error"></div>
       @endif
-      
+
     <div class="wrapper">
 
         @include('backend/base/header')
@@ -24,6 +24,8 @@
           @include('backend/user/index')
         @elseif ($page === 'Admin')
           @include('backend/admin/index')
+        @elseif ($page === 'Sellout')
+          @include('backend/sellout/index')
         @endif
       <!-- /.content-wrapper -->
         @include('backend/base/footer')
@@ -34,7 +36,7 @@
       <div class="control-sidebar-bg"></div>
     </div><!-- ./wrapper -->
 
-    
+
     @include('backend/base/js')
     @include('main/push-js')
   </body>
