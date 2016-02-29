@@ -1,5 +1,6 @@
 
 <!-- jQuery 2.1.4 -->
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> -->
 <script src="{{ $global['baseUrl'] }}backend/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 <!-- Bootstrap 3.3.5 -->
 <script src="{{ $global['baseUrl'] }}backend/bootstrap/js/bootstrap.min.js"></script>
@@ -30,3 +31,9 @@
 
 <!-- page script -->
 <script src="{{ $global['baseUrl'] }}backend/js/app.js"></script>
+
+
+@if ($page === 'Sellout')
+<script type="text/javascript" src="{{ $global['baseUrl'] }}assets/plugins/filer/js/jquery.filer.min.js?v=1.0.5"></script>
+<script type="text/javascript" src="{{ $global['baseUrl'] }}assets/plugins/filer/js/custom.js?v=1.0.5"></script>
+@endif

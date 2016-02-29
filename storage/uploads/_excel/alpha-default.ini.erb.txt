@@ -1,0 +1,112 @@
+; ------------------------------------------
+; SERIOUS CONFIG
+; ------------------------------------------
+
+[aws.credential]
+
+[aws.dynamo]
+region          = ap-southeast-1
+version         = latest
+prefix          = wms-a-dym-www-
+
+; ------------------------------------------
+; LOG CONFIG
+; ------------------------------------------
+[log]
+;level :: debug, info, warning, error
+file            = /data/log/wemall/application.log
+level           = debug
+
+; ------------------------------------------
+; ENV CONFIG
+; ------------------------------------------
+
+[base.url]
+endpoint        = http://alpha-www.wemall-dev.com/
+
+; ------------------------------------------
+; CDN CONFIG
+; ------------------------------------------
+[amazon.s3]
+path            = http://alpha-cdn.wemall-dev.com/
+
+; ------------------------------------------
+; API CONFIG
+; ------------------------------------------
+
+[api.mds]
+;endpoint        = http://merchants-api.wemall-dev.com:8080/
+endpoint        = http://alpha-apis-gateway.wemall-dev.com/mch/
+version         = v1
+
+[api.aad]
+;endpoint        = http://alpha-auth.wemall-dev.com/
+endpoint        = http://alpha-apis-gateway.wemall-dev.com/authen/
+version         = v1
+
+[api.pds]
+;endpoint        = http://alpha-products-api.wemall-dev.com:8080/
+endpoint        = http://alpha-apis-gateway.wemall-dev.com/pds/
+version         = v2
+
+[api.pcs]
+;endpoint        = http://alpha-pricing-api.wemall-dev.com:8080/api/
+endpoint        = http://alpha-apis-gateway.wemall-dev.com/prc/
+version         = v1
+
+[api.inv]
+;endpoint        = http://alpha-inventory-api.wemall-dev.com:8080/api/
+endpoint        = http://alpha-apis-gateway.wemall-dev.com/ims/
+version         = v1
+
+[api.cps]
+;endpoint        = http://alpha-portal-api.wemall-dev.com/
+endpoint        = http://alpha-apis-gateway.wemall-dev.com/cps/
+version         = v1
+
+[api.css]
+;endpoint        = http://alpha-storefront-api.wemall-dev.com/
+endpoint        = http://alpha-apis-gateway.wemall-dev.com/css/
+version         = v2
+
+[api.general]
+;endpoint        = http://alpha-general-api.wemall-dev.com/
+endpoint        = http://alpha-apis-gateway.wemall-dev.com/gen/
+version         = v1
+
+[api.cart]
+;endpoint        = http://alpha-cart-api.wemall-dev.com/
+endpoint        = http://alpha-apis-gateway.wemall-dev.com/carts/
+version         = v1
+
+[api.search]
+;endpoint        = http://alpha-search-api.wemall-dev.com:8080/
+endpoint        = http://alpha-apis-gateway.wemall-dev.com/search/
+
+[api.campaign]
+;endpoint        = http://alpha-campaign-api.wemall-dev.com:8080/api/
+endpoint        = http://alpha-apis-gateway.wemall-dev.com/cmp/
+version         = v1
+
+[api.dir]
+;endpoint        = http://alpha-dir.wemall-dev.com/
+endpoint        = http://alpha-apis-gateway.wemall-dev.com/dir/
+version         = v1
+
+[api.finance]
+;endpoint        = http://alpha-fin-api.wemall-dev.com/
+endpoint        = http://alpha-apis-gateway.wemall-dev.com/financial/
+version         = v1
+
+; ------------------------------------------
+; LIVE AGENT CONFIG
+; ------------------------------------------
+[liveagent]
+uploadId        = alpha-cdn-wemall-dev-com-th-wmscripts-liveagent-liveagent-js
+
+; ------------------------------------------
+; iTruemart config
+; ------------------------------------------
+[itruemart]
+endpoint            = http://alpha-www.itruemart-dev.com
+version				=

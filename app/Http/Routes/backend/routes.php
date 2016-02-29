@@ -55,6 +55,8 @@ Route::group(['prefix' => '@min', 'middleware' => 'auth'], function () {
     Route::post('api-admin-update-form-where', ['as' => 'admin-update', 'uses' => 'backend\AdminController@getUpdateFormWhere']);
     //exel
     Route::get('/sellout', ['as' => 'sellout/index', 'uses' => 'backend\SelloutController@index']);
+    Route::get('/sellout/{name}', ['as' => 'sellout/name', 'uses' => 'backend\SelloutController@index']);
+    Route::post('/api-sellout-upload', ['as' => 'api-sellout-upload', 'uses' => 'backend\SelloutController@upload']);
 
 });
 

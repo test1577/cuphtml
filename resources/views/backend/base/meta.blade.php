@@ -35,4 +35,9 @@
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
         <link rel="icon" type="image/png" href="{{ $global['baseUrl'] }}frontend/assets/icon/favicon.ico">
-        
+
+        @if ($page === 'Sellout')
+      	<!--Stylesheets-->
+      	<link href="{{ $global['baseUrl'] }}assets/plugins/filer/css/jquery.filer.css" type="text/css" rel="stylesheet" />
+      	<link href="{{ $global['baseUrl'] }}assets/plugins/filer/css/themes/jquery.filer-dragdropbox-theme.css" type="text/css" rel="stylesheet" />
+        @endif
